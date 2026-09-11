@@ -1,100 +1,135 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-        content="Ahmed Atia Abd-Elmonem Sokker - Cybersecurity Professional focused on SOC Operations, Network Security and Security Operations.">
+<meta name="description"
+content="Ahmed Atia Sokker — Cybersecurity and Network Security Portfolio focused on SOC operations, network defense, vulnerability assessment and security monitoring.">
 
-    <title>Ahmed Atia Sokker | Cybersecurity Portfolio</title>
+<title>Ahmed Atia Sokker | Cybersecurity Portfolio</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap"
-        rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+<!-- FONT AWESOME -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+    --bg:#050a0f;
+    --bg2:#07121a;
+
+    --panel:rgba(8,22,31,.78);
+    --panel2:rgba(10,28,38,.92);
+
+    --cyan:#00f0ff;
+    --teal:#00d5c7;
+    --blue:#168cff;
+    --green:#38f29b;
+    --red:#ff4d6d;
+    --yellow:#ffd166;
+
+    --text:#e8fbff;
+    --muted:#8ca8b3;
+
+    --line:rgba(0,240,255,.13);
+
+    --shadow:
+        0 0 35px rgba(0,240,255,.08),
+        inset 0 0 30px rgba(0,240,255,.025);
+
+    --radius:20px;
+}
+
 
 /* =========================================================
    RESET
 ========================================================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
 }
 
-:root {
-
-    --bg: #03060b;
-    --bg2: #07111d;
-
-    --card: rgba(8, 17, 29, 0.90);
-
-    --primary: #00ffc8;
-    --primary2: #00b894;
-
-    --text: #f5f7fa;
-    --muted: #91a0b5;
-
-    --border: rgba(0,255,200,0.18);
-
-    --glow:
-        0 0 30px rgba(0,255,200,0.10);
+html{
+    scroll-behavior:smooth;
 }
 
-
-body {
-
-    font-family: "Inter", sans-serif;
-
-    color: var(--text);
-
+body{
     background:
         radial-gradient(
-            circle at 20% 20%,
-            rgba(0,255,200,0.08),
-            transparent 25%
+            circle at 10% 10%,
+            rgba(0,240,255,.08),
+            transparent 28%
         ),
 
         radial-gradient(
-            circle at 80% 70%,
-            rgba(0,140,255,0.07),
+            circle at 90% 20%,
+            rgba(0,130,255,.08),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(0,213,199,.05),
             transparent 30%
         ),
 
         var(--bg);
 
-    line-height: 1.7;
+    color:var(--text);
 
-    overflow-x: hidden;
+    font-family:"Inter",sans-serif;
+
+    overflow-x:hidden;
 }
 
+body::before{
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
+    content:"";
 
+    position:fixed;
 
-.container {
+    inset:0;
 
-    width: min(1150px, 92%);
+    pointer-events:none;
 
-    margin: auto;
+    opacity:.22;
+
+    background-image:
+        linear-gradient(
+            rgba(0,240,255,.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(0,240,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:60px 60px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+
+    z-index:-2;
 }
 
 
@@ -102,169 +137,44 @@ a {
    NETWORK BACKGROUND
 ========================================================= */
 
-.network-background {
+#networkCanvas{
 
-    position: fixed;
+    position:fixed;
 
-    inset: 0;
+    inset:0;
 
-    z-index: -2;
+    width:100%;
+    height:100%;
 
-    overflow: hidden;
+    pointer-events:none;
 
-    pointer-events: none;
+    opacity:.48;
+
+    z-index:-1;
 }
 
 
-.network-background::before {
+/* =========================================================
+   SCROLLBAR
+========================================================= */
 
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background-image:
-
-        linear-gradient(
-            rgba(0,255,200,0.025) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(0,255,200,0.025) 1px,
-            transparent 1px
-        );
-
-    background-size: 55px 55px;
+::-webkit-scrollbar{
+    width:8px;
 }
 
+::-webkit-scrollbar-track{
+    background:#03070a;
+}
 
-.network-line {
-
-    position: absolute;
-
-    height: 1px;
+::-webkit-scrollbar-thumb{
 
     background:
         linear-gradient(
-            90deg,
-            transparent,
-            rgba(0,255,200,0.25),
-            transparent
+            var(--cyan),
+            var(--teal)
         );
 
-    animation: networkMove 8s linear infinite;
-}
-
-
-.line1 {
-    width: 55%;
-    top: 22%;
-    left: -10%;
-    transform: rotate(18deg);
-}
-
-.line2 {
-    width: 45%;
-    top: 62%;
-    right: -10%;
-    transform: rotate(-25deg);
-    animation-delay: 2s;
-}
-
-.line3 {
-    width: 40%;
-    top: 42%;
-    left: 35%;
-    transform: rotate(70deg);
-    animation-delay: 4s;
-}
-
-
-.network-node {
-
-    position: absolute;
-
-    width: 6px;
-
-    height: 6px;
-
-    border-radius: 50%;
-
-    background: var(--primary);
-
-    box-shadow:
-        0 0 15px var(--primary);
-
-    animation: pulseNode 3s ease-in-out infinite;
-}
-
-
-.node1 {
-    top: 20%;
-    left: 15%;
-}
-
-.node2 {
-    top: 32%;
-    left: 75%;
-    animation-delay: 1s;
-}
-
-.node3 {
-    top: 70%;
-    left: 25%;
-    animation-delay: 2s;
-}
-
-.node4 {
-    top: 78%;
-    left: 82%;
-    animation-delay: 1.5s;
-}
-
-.node5 {
-    top: 48%;
-    left: 52%;
-    animation-delay: .5s;
-}
-
-
-@keyframes networkMove {
-
-    0% {
-        transform: translateX(-20%) rotate(18deg);
-        opacity: 0;
-    }
-
-    20% {
-        opacity: 1;
-    }
-
-    80% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateX(40%) rotate(18deg);
-        opacity: 0;
-    }
-}
-
-
-@keyframes pulseNode {
-
-    0%, 100% {
-        transform: scale(1);
-        opacity: .5;
-    }
-
-    50% {
-        transform: scale(2.2);
-        opacity: 1;
-    }
+    border-radius:20px;
 }
 
 
@@ -272,76 +182,223 @@ a {
    NAVBAR
 ========================================================= */
 
-nav {
+.navbar{
 
-    position: fixed;
+    position:fixed;
 
-    top: 0;
-    left: 0;
+    top:18px;
+    left:50%;
 
-    width: 100%;
+    transform:translateX(-50%);
 
-    z-index: 1000;
+    width:min(1180px,92%);
+
+    height:70px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 25px;
+
+    background:rgba(4,13,19,.78);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(0,240,255,.16);
+
+    border-radius:18px;
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.35),
+        0 0 25px rgba(0,240,255,.04);
+
+    z-index:1000;
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:17px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+}
+
+.logo-mark{
+
+    width:38px;
+    height:38px;
+
+    display:grid;
+
+    place-items:center;
+
+    border:1px solid var(--cyan);
+
+    border-radius:10px;
+
+    color:var(--cyan);
+
+    box-shadow:
+        0 0 15px rgba(0,240,255,.35),
+        inset 0 0 15px rgba(0,240,255,.08);
+}
+
+.logo span{
+    color:var(--cyan);
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:24px;
+
+    list-style:none;
+}
+
+.nav-links a{
+
+    color:#9eb7c1;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    transition:.25s;
+}
+
+.nav-links a:hover{
+
+    color:var(--cyan);
+
+    text-shadow:
+        0 0 12px rgba(0,240,255,.5);
+}
+
+.nav-status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--green);
+
+    font-size:11px;
+
+    font-family:"Orbitron",sans-serif;
+}
+
+.status-dot{
+
+    width:8px;
+    height:8px;
+
+    background:var(--green);
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 12px var(--green);
+
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:.4;
+        transform:scale(.7);
+    }
+}
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+section{
+
+    width:min(1180px,92%);
+
+    margin:auto;
+
+    padding:110px 0;
+}
+
+.section-label{
+
+    color:var(--cyan);
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    margin-bottom:12px;
+}
+
+.section-title{
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:clamp(28px,4vw,45px);
+
+    margin-bottom:16px;
+}
+
+.section-title span{
+    color:var(--cyan);
+}
+
+.section-subtitle{
+
+    color:var(--muted);
+
+    max-width:700px;
+
+    line-height:1.8;
+}
+
+.glass{
 
     background:
-        rgba(3,6,11,0.86);
+        linear-gradient(
+            145deg,
+            rgba(10,29,39,.9),
+            rgba(5,15,22,.8)
+        );
 
-    backdrop-filter: blur(15px);
+    border:1px solid var(--line);
 
-    border-bottom:
-        1px solid var(--border);
-}
+    box-shadow:var(--shadow);
 
-
-.nav-inner {
-
-    min-height: 72px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-}
-
-
-.logo {
-
-    font-family: "Orbitron", sans-serif;
-
-    color: var(--primary);
-
-    font-size: 1.15rem;
-
-    font-weight: 800;
-
-    letter-spacing: 1px;
-}
-
-
-.nav-links {
-
-    display: flex;
-
-    gap: 22px;
-
-    list-style: none;
-}
-
-
-.nav-links a {
-
-    color: var(--muted);
-
-    font-size: .84rem;
-
-    transition: .3s;
-}
-
-
-.nav-links a:hover {
-
-    color: var(--primary);
+    border-radius:var(--radius);
 }
 
 
@@ -349,224 +406,322 @@ nav {
    HERO
 ========================================================= */
 
-.hero {
+.hero{
 
-    min-height: 100vh;
+    min-height:100vh;
 
-    display: flex;
+    padding-top:160px;
 
-    align-items: center;
+    display:grid;
 
-    padding-top: 90px;
+    grid-template-columns:1.15fr .85fr;
+
+    align-items:center;
+
+    gap:70px;
 }
 
+.hero-eyebrow{
 
-.hero-grid {
+    display:inline-flex;
 
-    display: grid;
+    align-items:center;
 
-    grid-template-columns: 1.25fr .75fr;
+    gap:10px;
 
-    gap: 60px;
+    color:var(--cyan);
 
-    align-items: center;
+    font-family:"Orbitron",sans-serif;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    border:1px solid rgba(0,240,255,.2);
+
+    padding:10px 15px;
+
+    border-radius:50px;
+
+    background:rgba(0,240,255,.035);
 }
 
+.hero-eyebrow::before{
 
-.eyebrow {
+    content:"";
 
-    font-family: "Orbitron", sans-serif;
+    width:7px;
+    height:7px;
 
-    color: var(--primary);
+    border-radius:50%;
 
-    font-size: .78rem;
-
-    letter-spacing: 3px;
-
-    margin-bottom: 18px;
-}
-
-
-.hero h1 {
-
-    font-family: "Orbitron", sans-serif;
-
-    font-size:
-        clamp(2.5rem, 6vw, 5rem);
-
-    line-height: 1.08;
-
-    margin-bottom: 20px;
-}
-
-
-.hero h1 span {
-
-    color: var(--primary);
-
-    text-shadow:
-        0 0 25px rgba(0,255,200,.20);
-}
-
-
-.hero-description {
-
-    max-width: 700px;
-
-    color: var(--muted);
-
-    font-size: 1.05rem;
-}
-
-
-.hero-buttons {
-
-    display: flex;
-
-    gap: 14px;
-
-    flex-wrap: wrap;
-
-    margin-top: 30px;
-}
-
-
-.btn {
-
-    padding: 12px 21px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 10px;
-
-    font-weight: 700;
-
-    transition: .3s;
-}
-
-
-.btn-primary {
-
-    background: var(--primary);
-
-    color: #00110c;
-}
-
-
-.btn:hover {
-
-    transform: translateY(-4px);
+    background:var(--green);
 
     box-shadow:
-        0 12px 30px rgba(0,255,200,.12);
+        0 0 12px var(--green);
+}
+
+.hero h1{
+
+    margin-top:24px;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:clamp(42px,6vw,78px);
+
+    line-height:1.03;
+
+    letter-spacing:-2px;
+}
+
+.hero h1 span{
+
+    color:var(--cyan);
+
+    text-shadow:
+        0 0 20px rgba(0,240,255,.35),
+        0 0 50px rgba(0,240,255,.12);
+}
+
+.hero-description{
+
+    margin-top:24px;
+
+    max-width:650px;
+
+    color:#9ab1ba;
+
+    line-height:1.9;
+
+    font-size:16px;
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:14px;
+
+    margin-top:32px;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+
+    text-decoration:none;
+
+    padding:14px 22px;
+
+    border-radius:11px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.btn-primary{
+
+    color:#001014;
+
+    background:var(--cyan);
+
+    box-shadow:
+        0 0 25px rgba(0,240,255,.2);
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 0 35px rgba(0,240,255,.45);
+}
+
+.btn-secondary{
+
+    color:var(--cyan);
+
+    border:1px solid rgba(0,240,255,.25);
+
+    background:rgba(0,240,255,.03);
+}
+
+.btn-secondary:hover{
+
+    background:rgba(0,240,255,.08);
+
+    transform:translateY(-3px);
 }
 
 
 /* =========================================================
-   TERMINAL
+   COMMAND CENTER
 ========================================================= */
 
-.terminal {
+.command-center{
 
-    padding: 26px;
+    padding:20px;
 
-    background:
-        rgba(3,10,17,.94);
+    position:relative;
 
-    border:
-        1px solid var(--border);
-
-    border-radius: 18px;
-
-    box-shadow: var(--glow);
-
-    animation:
-        floating 5s ease-in-out infinite;
+    overflow:hidden;
 }
 
+.command-center::before{
 
-.terminal-top {
+    content:"";
 
-    display: flex;
+    position:absolute;
 
-    gap: 7px;
+    width:220px;
+    height:220px;
 
-    margin-bottom: 20px;
+    border-radius:50%;
+
+    background:rgba(0,240,255,.08);
+
+    filter:blur(50px);
+
+    top:-80px;
+    right:-70px;
 }
 
+.terminal-top{
 
-.dot {
+    display:flex;
 
-    width: 10px;
+    align-items:center;
 
-    height: 10px;
+    justify-content:space-between;
 
-    border-radius: 50%;
+    padding-bottom:15px;
 
-    background: var(--primary);
+    border-bottom:1px solid rgba(0,240,255,.1);
 }
 
+.terminal-title{
 
-.terminal code {
+    font-family:"Orbitron",sans-serif;
 
-    font-family: monospace;
+    font-size:11px;
 
-    color: #cbd5e1;
-
-    line-height: 2;
+    color:var(--cyan);
 }
 
+.terminal-lights{
 
-.green {
+    display:flex;
 
-    color: var(--primary);
+    gap:5px;
 }
 
+.terminal-lights i{
 
-@keyframes floating {
+    width:7px;
+    height:7px;
 
-    0%,100% {
-        transform: translateY(0);
-    }
+    border-radius:50%;
 
-    50% {
-        transform: translateY(-10px);
+    background:#53636a;
+}
+
+.terminal-body{
+
+    padding:22px 5px 10px;
+
+    font-family:monospace;
+
+    font-size:12px;
+
+    line-height:2;
+}
+
+.cmd{
+    color:var(--cyan);
+}
+
+.output{
+    color:#88a1aa;
+}
+
+.success{
+    color:var(--green);
+}
+
+.warning{
+    color:var(--yellow);
+}
+
+.cursor{
+
+    display:inline-block;
+
+    width:7px;
+    height:14px;
+
+    background:var(--cyan);
+
+    vertical-align:middle;
+
+    animation:blink .8s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0;
     }
 }
 
 
 /* =========================================================
-   SECTIONS
+   SECURITY BAR
 ========================================================= */
 
-section {
+.security-bar{
 
-    padding: 100px 0;
+    margin-top:25px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:10px;
 }
 
+.security-stat{
 
-.section-title {
+    padding:14px;
 
-    font-family: "Orbitron", sans-serif;
+    border:1px solid rgba(0,240,255,.1);
 
-    font-size: 2rem;
+    border-radius:12px;
 
-    margin-bottom: 10px;
+    background:rgba(0,0,0,.16);
 }
 
+.security-stat small{
 
-.section-title span {
+    display:block;
 
-    color: var(--primary);
+    color:#66808b;
+
+    font-size:9px;
+
+    font-family:"Orbitron",sans-serif;
+
+    margin-bottom:7px;
 }
 
+.security-stat strong{
 
-.section-subtitle {
+    font-family:"Orbitron",sans-serif;
 
-    color: var(--muted);
+    color:var(--cyan);
 
-    margin-bottom: 40px;
+    font-size:15px;
 }
 
 
@@ -574,36 +729,429 @@ section {
    ABOUT
 ========================================================= */
 
-.about-card {
+.about-grid{
 
-    padding: 35px;
+    display:grid;
 
-    background: var(--card);
+    grid-template-columns:.8fr 1.2fr;
 
-    border:
-        1px solid var(--border);
+    gap:55px;
 
-    border-radius: 18px;
+    align-items:center;
+}
 
-    transition: .4s;
+.about-photo{
+
+    position:relative;
+
+    min-height:470px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.photo-frame{
+
+    position:relative;
+
+    width:min(370px,90%);
+
+    border-radius:25px;
+
+    padding:8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,240,255,.7),
+            transparent 35%,
+            transparent 65%,
+            rgba(0,213,199,.6)
+        );
+
+    box-shadow:
+        0 0 45px rgba(0,240,255,.13);
+
+    overflow:visible;
+}
+
+.photo-frame::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-15px;
+
+    border:1px solid rgba(0,240,255,.12);
+
+    border-radius:30px;
+
+    animation:rotateBorder 8s linear infinite;
+
+    pointer-events:none;
+}
+
+@keyframes rotateBorder{
+
+    0%{
+        transform:rotate(0deg);
+    }
+
+    100%{
+        transform:rotate(360deg);
+    }
 }
 
 
-.about-card:hover {
+/* =========================================================
+   PHOTO
+========================================================= */
 
-    transform: translateY(-7px);
+.photo-frame img{
 
-    border-color: var(--primary);
+    width:100%;
 
-    box-shadow: var(--glow);
+    display:block;
+
+    aspect-ratio:4/5;
+
+    object-fit:cover;
+
+    border-radius:19px;
+
+    background:#020609;
+
+    filter:
+        saturate(.9)
+        contrast(1.05);
+
+    transition:
+        transform .4s ease,
+        filter .4s ease;
+}
+
+.photo-frame img:hover{
+
+    transform:scale(1.02);
+
+    filter:
+        saturate(1)
+        contrast(1.08);
 }
 
 
-.about-card p {
+/* FALLBACK IF IMAGE DOES NOT LOAD */
 
-    color: var(--muted);
+.photo-fallback{
 
-    font-size: 1rem;
+    width:100%;
+
+    aspect-ratio:4/5;
+
+    border-radius:19px;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,240,255,.13),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            145deg,
+            #071820,
+            #020609
+        );
+
+    border:1px solid rgba(0,240,255,.15);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.photo-fallback::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border:1px solid rgba(0,240,255,.22);
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 30px rgba(0,240,255,.15);
+
+    animation:avatarPulse 3s infinite;
+}
+
+.photo-fallback-icon{
+
+    width:100px;
+    height:100px;
+
+    border-radius:50%;
+
+    display:grid;
+
+    place-items:center;
+
+    border:2px solid var(--cyan);
+
+    color:var(--cyan);
+
+    font-size:42px;
+
+    box-shadow:
+        0 0 30px rgba(0,240,255,.25),
+        inset 0 0 25px rgba(0,240,255,.08);
+
+    z-index:2;
+}
+
+.photo-fallback strong{
+
+    margin-top:25px;
+
+    color:var(--cyan);
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:14px;
+
+    letter-spacing:2px;
+
+    z-index:2;
+}
+
+.photo-fallback span{
+
+    margin-top:7px;
+
+    color:#63818c;
+
+    font-size:10px;
+
+    font-family:"Orbitron",sans-serif;
+
+    z-index:2;
+}
+
+@keyframes avatarPulse{
+
+    0%,100%{
+        transform:scale(.95);
+        opacity:.5;
+    }
+
+    50%{
+        transform:scale(1.08);
+        opacity:1;
+    }
+}
+
+.photo-tag{
+
+    position:absolute;
+
+    bottom:25px;
+
+    left:-20px;
+
+    padding:12px 16px;
+
+    background:rgba(3,12,17,.9);
+
+    border:1px solid rgba(0,240,255,.25);
+
+    border-radius:12px;
+
+    backdrop-filter:blur(12px);
+
+    z-index:5;
+}
+
+.photo-tag small{
+
+    display:block;
+
+    color:#6e8a95;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:8px;
+
+    margin-bottom:4px;
+}
+
+.photo-tag strong{
+
+    color:var(--cyan);
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:11px;
+}
+
+.about-content h3{
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:26px;
+
+    margin-bottom:18px;
+}
+
+.about-content h3 span{
+    color:var(--cyan);
+}
+
+.about-content p{
+
+    color:#91aab4;
+
+    line-height:1.9;
+
+    margin-bottom:17px;
+}
+
+.about-metrics{
+
+    margin-top:28px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
+}
+
+.metric{
+
+    padding:18px;
+
+    border-radius:14px;
+
+    background:rgba(0,240,255,.025);
+
+    border:1px solid rgba(0,240,255,.1);
+}
+
+.metric strong{
+
+    display:block;
+
+    color:var(--cyan);
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:23px;
+}
+
+.metric span{
+
+    color:#6f8993;
+
+    font-size:10px;
+}
+
+
+/* =========================================================
+   SOC MONITOR
+========================================================= */
+
+.monitor{
+
+    margin-top:50px;
+
+    padding:25px;
+}
+
+.monitor-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:22px;
+}
+
+.monitor-head h3{
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:14px;
+}
+
+.live{
+
+    color:var(--green);
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:10px;
+}
+
+.alert-row{
+
+    display:grid;
+
+    grid-template-columns:80px 1fr 100px;
+
+    gap:15px;
+
+    padding:14px 5px;
+
+    border-bottom:1px solid rgba(0,240,255,.07);
+
+    font-size:11px;
+}
+
+.alert-time{
+
+    color:#55727d;
+
+    font-family:monospace;
+}
+
+.alert-message{
+
+    color:#9eb4bc;
+}
+
+.alert-status{
+
+    text-align:right;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:9px;
+}
+
+.safe{
+    color:var(--green);
+}
+
+.detected{
+    color:var(--yellow);
 }
 
 
@@ -611,64 +1159,97 @@ section {
    SKILLS
 ========================================================= */
 
-.skills-grid {
+.skills-grid{
 
-    display: grid;
+    display:grid;
 
-    grid-template-columns:
-        repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
 
-    gap: 18px;
+    gap:15px;
+
+    margin-top:45px;
 }
 
+.skill-card{
 
-.skill-card {
+    padding:24px;
 
-    padding: 25px;
+    min-height:190px;
 
-    background: var(--card);
+    position:relative;
 
-    border:
-        1px solid var(--border);
+    overflow:hidden;
 
-    border-radius: 16px;
-
-    transition: .35s;
+    transition:.35s;
 }
 
+.skill-card:hover{
 
-.skill-card:hover {
+    transform:translateY(-8px);
 
-    transform:
-        translateY(-8px);
+    border-color:rgba(0,240,255,.35);
 
-    border-color: var(--primary);
-
-    box-shadow: var(--glow);
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.25),
+        0 0 25px rgba(0,240,255,.08);
 }
 
+.skill-number{
 
-.skill-card i {
+    color:#35505a;
 
-    color: var(--primary);
+    font-family:"Orbitron",sans-serif;
 
-    font-size: 1.8rem;
-
-    margin-bottom: 15px;
+    font-size:10px;
 }
 
+.skill-card h3{
 
-.skill-card h3 {
+    margin-top:20px;
 
-    margin-bottom: 8px;
+    font-family:"Orbitron",sans-serif;
+
+    font-size:15px;
+
+    color:var(--cyan);
 }
 
+.skill-card p{
 
-.skill-card p {
+    margin-top:10px;
 
-    color: var(--muted);
+    color:#738d97;
 
-    font-size: .9rem;
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+.skill-line{
+
+    position:absolute;
+
+    left:24px;
+
+    bottom:22px;
+
+    width:calc(100% - 48px);
+
+    height:2px;
+
+    background:rgba(0,240,255,.08);
+}
+
+.skill-line span{
+
+    display:block;
+
+    height:100%;
+
+    background:var(--cyan);
+
+    box-shadow:
+        0 0 10px rgba(0,240,255,.5);
 }
 
 
@@ -676,84 +1257,81 @@ section {
    CERTIFICATIONS
 ========================================================= */
 
-.cert-grid {
+.cert-grid{
 
-    display: grid;
+    display:grid;
 
-    grid-template-columns:
-        repeat(2,1fr);
+    grid-template-columns:repeat(3,1fr);
 
-    gap: 20px;
+    gap:18px;
+
+    margin-top:45px;
 }
 
+.cert-card{
 
-.cert-card {
+    position:relative;
 
-    padding: 28px;
+    overflow:hidden;
 
-    background: var(--card);
+    padding:22px;
 
-    border:
-        1px solid var(--border);
+    min-height:170px;
 
-    border-radius: 18px;
+    cursor:pointer;
 
-    cursor: pointer;
-
-    transition: .4s;
+    transition:.3s;
 }
 
+.cert-card:hover{
 
-.cert-card:hover {
+    transform:translateY(-6px);
 
-    transform:
-        translateY(-9px)
-        scale(1.01);
-
-    border-color: var(--primary);
-
-    box-shadow:
-        0 0 35px rgba(0,255,200,.12);
+    border-color:rgba(0,240,255,.4);
 }
 
+.cert-index{
 
-.cert-icon {
+    color:#3e5d67;
 
-    color: var(--primary);
+    font-family:"Orbitron",sans-serif;
 
-    font-size: 2rem;
-
-    margin-bottom: 15px;
+    font-size:10px;
 }
 
+.cert-card h3{
 
-.cert-card h3 {
+    margin-top:28px;
 
-    margin-bottom: 8px;
+    font-family:"Orbitron",sans-serif;
 
-    line-height: 1.4;
+    font-size:15px;
+
+    line-height:1.5;
 }
 
+.cert-card p{
 
-.cert-card p {
+    margin-top:8px;
 
-    color: var(--muted);
+    color:#607b86;
 
-    font-size: .9rem;
+    font-size:11px;
 }
 
+.cert-open{
 
-.view-cert {
+    position:absolute;
 
-    display: inline-block;
+    right:20px;
 
-    margin-top: 15px;
+    bottom:20px;
 
-    color: var(--primary);
+    color:var(--cyan);
 
-    font-size: .82rem;
+    font-family:"Orbitron",sans-serif;
 
-    font-weight: 700;
+    font-size:9px;
 }
 
 
@@ -761,78 +1339,66 @@ section {
    TRAINING
 ========================================================= */
 
-.timeline {
+.training-list{
 
-    border-left:
-        2px solid var(--primary);
+    margin-top:45px;
 
-    padding-left: 28px;
+    display:grid;
+
+    gap:15px;
 }
 
+.training{
 
-.timeline-item {
+    display:grid;
 
-    position: relative;
+    grid-template-columns:100px 1fr auto;
 
-    margin-bottom: 30px;
+    gap:20px;
 
-    padding: 25px;
+    align-items:center;
 
-    background: var(--card);
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 16px;
-
-    transition: .3s;
+    padding:22px;
 }
 
+.training-year{
 
-.timeline-item:hover {
+    color:var(--cyan);
 
-    transform: translateX(8px);
+    font-family:"Orbitron",sans-serif;
 
-    border-color: var(--primary);
+    font-size:11px;
 }
 
+.training h3{
 
-.timeline-item::before {
+    font-size:15px;
 
-    content: "";
-
-    position: absolute;
-
-    left: -38px;
-
-    top: 30px;
-
-    width: 14px;
-
-    height: 14px;
-
-    border-radius: 50%;
-
-    background: var(--primary);
-
-    box-shadow:
-        0 0 15px var(--primary);
+    margin-bottom:6px;
 }
 
+.training p{
 
-.timeline-item h3 {
+    color:#718b95;
 
-    color: var(--primary);
+    font-size:12px;
 
-    margin-bottom: 8px;
+    line-height:1.6;
 }
 
+.training-tag{
 
-.timeline-item p {
+    color:var(--green);
 
-    color: var(--muted);
+    border:1px solid rgba(56,242,155,.18);
 
-    margin-bottom: 8px;
+    padding:7px 10px;
+
+    border-radius:20px;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:8px;
 }
 
 
@@ -840,99 +1406,120 @@ section {
    PROJECTS
 ========================================================= */
 
-.projects-grid {
+.project-grid{
 
-    display: grid;
+    display:grid;
 
-    grid-template-columns:
-        repeat(2,1fr);
+    grid-template-columns:1.3fr .7fr;
 
-    gap: 22px;
+    gap:20px;
+
+    margin-top:45px;
 }
 
+.project-card{
 
-.project-card {
+    padding:30px;
 
-    padding: 30px;
-
-    background: var(--card);
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 18px;
-
-    transition: .4s;
+    min-height:300px;
 }
 
+.project-main{
 
-.project-card.featured {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(0,240,255,.09),
+            transparent 25%
+        ),
 
-    grid-column:
-        span 2;
+        var(--panel2);
 }
 
+.project-code{
 
-.project-card:hover {
+    color:var(--cyan);
 
-    transform: translateY(-9px);
+    font-family:monospace;
 
-    border-color: var(--primary);
-
-    box-shadow: var(--glow);
+    font-size:10px;
 }
 
+.project-card h3{
 
-.project-number {
+    margin-top:25px;
 
-    color: var(--primary);
+    font-family:"Orbitron",sans-serif;
 
-    font-family: "Orbitron", sans-serif;
-
-    font-size: .72rem;
-
-    letter-spacing: 1px;
+    font-size:24px;
 }
 
+.project-card p{
 
-.project-card h3 {
+    margin-top:15px;
 
-    margin: 10px 0;
+    color:#7e99a3;
 
-    font-size: 1.3rem;
+    line-height:1.8;
+
+    font-size:13px;
 }
 
+.project-tags{
 
-.project-card p {
+    display:flex;
 
-    color: var(--muted);
+    gap:8px;
+
+    flex-wrap:wrap;
+
+    margin-top:25px;
 }
 
+.project-tags span{
 
-.tags {
+    border:1px solid rgba(0,240,255,.13);
 
-    display: flex;
+    color:#78a6b1;
 
-    flex-wrap: wrap;
+    padding:7px 10px;
 
-    gap: 8px;
+    border-radius:7px;
 
-    margin-top: 20px;
+    font-size:9px;
 }
 
+.project-side{
 
-.tag {
+    display:flex;
 
-    padding: 5px 10px;
+    flex-direction:column;
 
-    border:
-        1px solid var(--border);
+    justify-content:space-between;
+}
 
-    border-radius: 20px;
+.project-side-item{
 
-    color: var(--primary);
+    padding:15px 0;
 
-    font-size: .72rem;
+    border-bottom:1px solid rgba(0,240,255,.08);
+}
+
+.project-side-item small{
+
+    display:block;
+
+    color:#526d77;
+
+    font-family:"Orbitron",sans-serif;
+
+    font-size:8px;
+
+    margin-bottom:5px;
+}
+
+.project-side-item strong{
+    font-size:13px;
 }
 
 
@@ -940,42 +1527,44 @@ section {
    EDUCATION
 ========================================================= */
 
-.education-card {
+.education{
 
-    padding: 30px;
+    padding:30px;
 
-    background: var(--card);
+    margin-top:45px;
 
-    border:
-        1px solid var(--border);
+    display:grid;
 
-    border-radius: 18px;
+    grid-template-columns:150px 1fr;
 
-    margin-bottom: 20px;
-
-    transition: .3s;
+    gap:30px;
 }
 
+.education-year{
 
-.education-card:hover {
+    color:var(--cyan);
 
-    transform: translateY(-6px);
+    font-family:"Orbitron",sans-serif;
 
-    border-color: var(--primary);
+    font-size:12px;
 }
 
+.education h3{
 
-.education-card h3 {
+    font-family:"Orbitron",sans-serif;
 
-    color: var(--primary);
-
-    margin-bottom: 8px;
+    font-size:19px;
 }
 
+.education p{
 
-.education-card p {
+    color:#78939d;
 
-    color: var(--muted);
+    margin-top:10px;
+
+    line-height:1.7;
+
+    font-size:13px;
 }
 
 
@@ -983,205 +1572,184 @@ section {
    CONTACT
 ========================================================= */
 
-.contact-box {
+.contact-box{
 
-    text-align: center;
+    margin-top:45px;
 
-    padding: 60px 30px;
+    padding:40px;
 
-    background: var(--card);
+    display:grid;
 
-    border:
-        1px solid var(--border);
+    grid-template-columns:1fr 1fr;
 
-    border-radius: 20px;
+    gap:40px;
 }
 
+.contact-intro h3{
 
-.contact-box p {
+    font-family:"Orbitron",sans-serif;
 
-    max-width: 650px;
-
-    margin:
-        15px auto 30px;
-
-    color: var(--muted);
+    font-size:25px;
 }
 
-
-.socials {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 15px;
-
-    flex-wrap: wrap;
+.contact-intro h3 span{
+    color:var(--cyan);
 }
 
+.contact-intro p{
 
-.social {
+    color:#78939d;
 
-    width: 50px;
+    line-height:1.8;
 
-    height: 50px;
+    margin-top:15px;
 
-    display: grid;
-
-    place-items: center;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 50%;
-
-    color: var(--primary);
-
-    transition: .3s;
-}
-
-
-.social:hover {
-
-    transform:
-        translateY(-6px)
-        rotate(5deg);
-
-    background: var(--primary);
-
-    color: #00110c;
+    max-width:500px;
 }
 
 
 /* =========================================================
-   CERTIFICATE MODAL
+   CONTACT LINKS
 ========================================================= */
 
-.modal {
+.contact-links{
 
-    position: fixed;
+    display:grid;
 
-    inset: 0;
+    grid-template-columns:repeat(2,1fr);
 
-    z-index: 3000;
-
-    display: none;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 15px;
-
-    background:
-        rgba(0,0,0,.90);
-
-    backdrop-filter: blur(8px);
+    gap:14px;
 }
 
+.contact-link{
 
-.modal.active {
+    text-decoration:none;
 
-    display: flex;
+    color:#b7d1d8;
+
+    border:1px solid rgba(0,240,255,.10);
+
+    padding:15px;
+
+    border-radius:15px;
+
+    background:rgba(0,240,255,.025);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
 }
 
+.contact-link:hover{
 
-.modal-content {
+    color:var(--cyan);
 
-    width:
-        min(1000px,96vw);
+    border-color:rgba(0,240,255,.38);
 
-    height:
-        min(90vh,850px);
+    background:rgba(0,240,255,.055);
 
-    background:
-        #080d15;
-
-    border:
-        1px solid var(--primary);
-
-    border-radius: 18px;
-
-    overflow: hidden;
+    transform:translateY(-5px);
 
     box-shadow:
-        0 0 50px rgba(0,255,200,.15);
+        0 10px 30px rgba(0,0,0,.25),
+        0 0 20px rgba(0,240,255,.10);
 }
 
 
-.modal-header {
+/* =========================================================
+   ROUND ICONS
+========================================================= */
 
-    height: 65px;
+.contact-icon{
 
-    padding: 0 20px;
+    width:48px;
+    height:48px;
 
-    display: flex;
+    min-width:48px;
 
-    align-items: center;
+    display:flex;
 
-    justify-content: space-between;
+    align-items:center;
 
-    border-bottom:
-        1px solid var(--border);
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:1px solid rgba(0,240,255,.28);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,240,255,.10),
+            rgba(0,240,255,.025)
+        );
+
+    color:var(--cyan);
+
+    font-size:19px;
+
+    box-shadow:
+        0 0 15px rgba(0,240,255,.08),
+        inset 0 0 12px rgba(0,240,255,.05);
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
 }
 
+.contact-link:hover .contact-icon{
 
-.modal-header h3 {
+    transform:
+        scale(1.12)
+        rotate(-5deg);
 
-    color: var(--primary);
+    background:rgba(0,240,255,.12);
 
-    font-size: 1rem;
+    box-shadow:
+        0 0 25px rgba(0,240,255,.25),
+        inset 0 0 15px rgba(0,240,255,.08);
 }
 
+.contact-info{
 
-.close {
-
-    border: none;
-
-    background: transparent;
-
-    color: white;
-
-    font-size: 2rem;
-
-    cursor: pointer;
+    min-width:0;
 }
 
+.contact-info small{
 
-.close:hover {
+    display:block;
 
-    color: var(--primary);
+    color:#58737d;
+
+    font-size:9px;
+
+    font-family:"Orbitron",sans-serif;
+
+    margin-bottom:5px;
+
+    letter-spacing:1px;
 }
 
+.contact-info span{
 
-#certificateImage {
+    display:block;
 
-    width: 100%;
+    font-size:11px;
 
-    height:
-        calc(100% - 65px);
+    white-space:nowrap;
 
-    object-fit: contain;
+    overflow:hidden;
 
-    background: #111;
-
-    display: none;
-}
-
-
-#certificatePDF {
-
-    width: 100%;
-
-    height:
-        calc(100% - 65px);
-
-    border: none;
-
-    background: white;
-
-    display: none;
+    text-overflow:ellipsis;
 }
 
 
@@ -1189,48 +1757,144 @@ section {
    FOOTER
 ========================================================= */
 
-footer {
+footer{
 
-    padding: 30px 0;
+    width:min(1180px,92%);
 
-    text-align: center;
+    margin:auto;
 
-    border-top:
-        1px solid var(--border);
+    padding:25px 0 40px;
 
-    color: var(--muted);
+    border-top:1px solid rgba(0,240,255,.08);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#526b74;
+
+    font-size:10px;
 }
 
+footer strong{
 
-footer span {
+    color:var(--cyan);
 
-    color: var(--primary);
+    font-family:"Orbitron",sans-serif;
 }
 
 
 /* =========================================================
-   REVEAL ANIMATION
+   MODAL
 ========================================================= */
 
-.reveal {
+.modal{
 
-    opacity: 0;
+    position:fixed;
 
-    transform:
-        translateY(30px);
+    inset:0;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:30px;
+
+    background:rgba(0,0,0,.85);
+
+    backdrop-filter:blur(12px);
+
+    z-index:2000;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-content{
+
+    position:relative;
+
+    width:min(950px,95vw);
+
+    max-height:90vh;
+
+    padding:18px;
+
+    border:1px solid rgba(0,240,255,.25);
+
+    border-radius:20px;
+
+    background:#061018;
+
+    box-shadow:
+        0 0 70px rgba(0,240,255,.1);
+}
+
+.modal-content img,
+.modal-content iframe{
+
+    display:block;
+
+    width:100%;
+
+    max-height:80vh;
+
+    object-fit:contain;
+
+    border-radius:10px;
+
+    background:#020609;
+}
+
+.modal-close{
+
+    position:absolute;
+
+    right:12px;
+    top:12px;
+
+    width:35px;
+    height:35px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(0,240,255,.25);
+
+    background:#061018;
+
+    color:var(--cyan);
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    z-index:5;
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(35px);
 
     transition:
         opacity .8s ease,
         transform .8s ease;
 }
 
+.reveal.visible{
 
-.reveal.show {
+    opacity:1;
 
-    opacity: 1;
-
-    transform:
-        translateY(0);
+    transform:translateY(0);
 }
 
 
@@ -1238,158 +1902,196 @@ footer span {
    RESPONSIVE
 ========================================================= */
 
-@media (max-width: 900px) {
+@media(max-width:900px){
 
-    .hero-grid {
-
-        grid-template-columns: 1fr;
+    .nav-links{
+        display:none;
     }
 
+    .hero{
 
-    .skills-grid {
+        grid-template-columns:1fr;
 
-        grid-template-columns:
-            repeat(2,1fr);
+        padding-top:140px;
     }
 
-
-    .cert-grid {
-
-        grid-template-columns: 1fr;
+    .about-grid{
+        grid-template-columns:1fr;
     }
 
-
-    .projects-grid {
-
-        grid-template-columns: 1fr;
+    .about-photo{
+        min-height:400px;
     }
 
-
-    .project-card.featured {
-
-        grid-column: span 1;
+    .skills-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
+    .cert-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-    .nav-links {
+    .project-grid{
+        grid-template-columns:1fr;
+    }
 
-        display: none;
+    .contact-box{
+        grid-template-columns:1fr;
     }
 }
 
 
-@media (max-width: 550px) {
+@media(max-width:600px){
 
-    section {
-
-        padding: 75px 0;
+    section{
+        padding:80px 0;
     }
 
-
-    .skills-grid {
-
-        grid-template-columns: 1fr;
+    .navbar{
+        width:94%;
     }
 
-
-    .hero h1 {
-
-        font-size: 2.2rem;
+    .nav-status{
+        display:none;
     }
 
-
-    .hero-buttons {
-
-        flex-direction: column;
+    .hero h1{
+        font-size:42px;
     }
 
-
-    .btn {
-
-        text-align: center;
+    .security-bar{
+        grid-template-columns:1fr;
     }
 
+    .skills-grid,
+    .cert-grid{
+        grid-template-columns:1fr;
+    }
+
+    .about-metrics{
+        grid-template-columns:1fr;
+    }
+
+    .training{
+        grid-template-columns:1fr;
+    }
+
+    .training-tag{
+        width:max-content;
+    }
+
+    .education{
+        grid-template-columns:1fr;
+    }
+
+    .contact-links{
+        grid-template-columns:1fr;
+    }
+
+    .contact-box{
+        padding:25px;
+    }
+
+    .contact-icon{
+
+        width:45px;
+        height:45px;
+
+        min-width:45px;
+
+        font-size:17px;
+    }
+
+    .alert-row{
+        grid-template-columns:65px 1fr;
+    }
+
+    .alert-status{
+        display:none;
+    }
+
+    footer{
+
+        flex-direction:column;
+
+        gap:10px;
+    }
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =========================================================
-     NETWORK BACKGROUND
-========================================================= -->
-
-<div class="network-background">
-
-    <div class="network-line line1"></div>
-    <div class="network-line line2"></div>
-    <div class="network-line line3"></div>
-
-    <div class="network-node node1"></div>
-    <div class="network-node node2"></div>
-    <div class="network-node node3"></div>
-    <div class="network-node node4"></div>
-    <div class="network-node node5"></div>
-
-</div>
+<canvas id="networkCanvas"></canvas>
 
 
 <!-- =========================================================
      NAVBAR
 ========================================================= -->
 
-<nav>
+<nav class="navbar">
 
-    <div class="container nav-inner">
+    <a href="#home" class="logo">
 
-        <a href="#home" class="logo">
-            AHMED SOKKER
-        </a>
+        <div class="logo-mark">
+            A
+        </div>
+
+        Ahmed <span>Sokker</span>
+
+    </a>
 
 
-        <ul class="nav-links">
+    <ul class="nav-links">
 
-            <li>
-                <a href="#home">Home</a>
-            </li>
+        <li>
+            <a href="#about">About</a>
+        </li>
 
-            <li>
-                <a href="#about">About</a>
-            </li>
+        <li>
+            <a href="#skills">Skills</a>
+        </li>
 
-            <li>
-                <a href="#skills">Skills</a>
-            </li>
+        <li>
+            <a href="#certifications">
+                Certifications
+            </a>
+        </li>
 
-            <li>
-                <a href="#certifications">Certifications</a>
-            </li>
+        <li>
+            <a href="#training">
+                Training
+            </a>
+        </li>
 
-            <li>
-                <a href="#training">Training</a>
-            </li>
+        <li>
+            <a href="#projects">
+                Projects
+            </a>
+        </li>
 
-            <li>
-                <a href="#projects">Projects</a>
-            </li>
+        <li>
+            <a href="#contact">
+                Contact
+            </a>
+        </li>
 
-            <li>
-                <a href="#education">Education</a>
-            </li>
+    </ul>
 
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
 
-        </ul>
+    <div class="nav-status">
+
+        <span class="status-dot"></span>
+
+        SYSTEM ONLINE
 
     </div>
 
 </nav>
+
 
 
 <!-- =========================================================
@@ -1398,99 +2100,261 @@ footer span {
 
 <section class="hero" id="home">
 
-    <div class="container hero-grid">
+
+    <div class="hero-content reveal">
+
+        <div class="hero-eyebrow">
+
+            CYBERSECURITY • NETWORK SECURITY • SOC
+
+        </div>
 
 
-        <div class="reveal">
+        <h1>
 
-            <div class="eyebrow">
-                NETWORK SECURITY • SOC • CYBERSECURITY
+            Defending<br>
+
+            <span>Networks.</span><br>
+
+            Securing Systems.
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            Cybersecurity-focused professional with hands-on experience
+            in network security, SOC operations, vulnerability assessment,
+            security monitoring and defensive security practices.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="#projects"
+               class="btn btn-primary">
+
+                Explore Projects →
+
+            </a>
+
+
+            <a href="#contact"
+               class="btn btn-secondary">
+
+                Connect With Me
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="command-center glass reveal">
+
+
+        <div class="terminal-top">
+
+            <div class="terminal-title">
+
+                // SECURITY COMMAND CENTER
+
             </div>
 
 
-            <h1>
+            <div class="terminal-lights">
 
-                Ahmed Atia<br>
-
-                <span>Sokker</span>
-
-            </h1>
-
-
-            <p class="hero-description">
-
-                Cybersecurity Professional focused on
-                SOC Operations, Network Security,
-                Enterprise Networking and Security Operations.
-
-            </p>
-
-
-            <div class="hero-buttons">
-
-                <a href="#projects"
-                   class="btn btn-primary">
-
-                    View Projects
-
-                </a>
-
-
-                <a href="#contact"
-                   class="btn">
-
-                    Contact Me
-
-                </a>
+                <i></i>
+                <i></i>
+                <i></i>
 
             </div>
 
         </div>
 
 
-        <div class="terminal reveal">
+        <div class="terminal-body">
 
-            <div class="terminal-top">
 
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+            <div>
+
+                <span class="cmd">
+                    root@soc:~$
+                </span>
+
+                ./security-monitor
 
             </div>
 
 
-            <code>
+            <div class="output">
 
-                <span class="green">$ whoami</span><br>
+                Initializing network sensors...
 
-                ahmed_sokker<br><br>
-
-
-                <span class="green">$ role</span><br>
-
-                Cybersecurity Professional<br><br>
+            </div>
 
 
-                <span class="green">$ focus</span><br>
+            <div class="output">
 
-                SOC Operations<br>
+                Loading threat intelligence...
 
-                Network Security<br>
-
-                Enterprise Networking<br><br>
+            </div>
 
 
-                <span class="green">$ status</span><br>
+            <div class="output">
 
-                Open to opportunities
+                Monitoring active interfaces...
 
-            </code>
+            </div>
+
+
+            <br>
+
+
+            <div>
+
+                <span class="success">
+                    [OK]
+                </span>
+
+                Network monitoring active
+
+            </div>
+
+
+            <div>
+
+                <span class="success">
+                    [OK]
+                </span>
+
+                SOC pipeline operational
+
+            </div>
+
+
+            <div>
+
+                <span class="success">
+                    [OK]
+                </span>
+
+                Threat detection enabled
+
+            </div>
+
+
+            <div>
+
+                <span class="warning">
+                    [INFO]
+                </span>
+
+                Security posture: HARDENED
+
+            </div>
+
+
+            <br>
+
+
+            <div>
+
+                <span class="cmd">
+                    root@soc:~$
+                </span>
+
+                scan --network
+
+            </div>
+
+
+            <div class="output">
+
+                192.168.1.0/24 → 24 hosts monitored
+
+            </div>
+
+
+            <div class="output">
+
+                Firewall → ACTIVE
+
+            </div>
+
+
+            <div class="output">
+
+                IDS → ACTIVE
+
+            </div>
+
+
+            <div>
+
+                <span class="success">
+                    SECURE.
+                </span>
+
+                <span class="cursor"></span>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="security-bar">
+
+
+            <div class="security-stat">
+
+                <small>
+                    NETWORK
+                </small>
+
+                <strong>
+                    ONLINE
+                </strong>
+
+            </div>
+
+
+            <div class="security-stat">
+
+                <small>
+                    THREATS
+                </small>
+
+                <strong id="threatCount">
+                    03
+                </strong>
+
+            </div>
+
+
+            <div class="security-stat">
+
+                <small>
+                    STATUS
+                </small>
+
+                <strong>
+                    SECURE
+                </strong>
+
+            </div>
+
 
         </div>
 
     </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -1499,59 +2363,273 @@ footer span {
 
 <section id="about">
 
-    <div class="container">
 
-        <h2 class="section-title">
-            About <span>Me</span>
-        </h2>
+    <div class="section-label reveal">
 
+        01 / PROFILE
 
-        <p class="section-subtitle">
-            Cybersecurity and networking professional focused on practical security operations.
-        </p>
+    </div>
 
 
-        <div class="about-card reveal">
+    <h2 class="section-title reveal">
+
+        About <span>Ahmed</span>
+
+    </h2>
+
+
+    <p class="section-subtitle reveal">
+
+        A security-focused profile built around networks, monitoring,
+        defensive security and continuous technical development.
+
+    </p>
+
+
+    <div class="about-grid">
+
+
+        <div class="about-photo reveal">
+
+
+            <div class="photo-frame">
+
+
+                <!-- REAL PHOTO -->
+
+                <img
+                    id="ahmedPhoto"
+                    src="./assets/ahmed.jpg"
+                    alt="Ahmed Atia Sokker"
+                    onerror="showPhotoFallback()"
+                >
+
+
+                <!-- FALLBACK -->
+
+                <div
+                    class="photo-fallback"
+                    id="photoFallback"
+                >
+
+                    <div class="photo-fallback-icon">
+
+                        <i class="fa-solid fa-user-shield"></i>
+
+                    </div>
+
+                    <strong>
+                        AHMED ATIA SOKKER
+                    </strong>
+
+                    <span>
+                        CYBERSECURITY • SOC
+                    </span>
+
+                </div>
+
+
+                <div class="photo-tag">
+
+                    <small>
+                        IDENTITY
+                    </small>
+
+                    <strong>
+                        AHMED ATIA SOKKER
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <div class="about-content reveal">
+
+
+            <h3>
+
+                Cybersecurity &
+
+                <span>
+                    Network Security
+                </span>
+
+            </h3>
+
 
             <p>
 
-                I am a Cybersecurity Professional with hands-on
-                training in Security Operations Center (SOC) engineering,
-                network security, enterprise networking and penetration testing.
+                I am Ahmed Atia Sokker, a cybersecurity-focused professional
+                interested in building secure, reliable and resilient
+                digital environments.
 
             </p>
 
 
-            <br>
-
-
             <p>
 
-                I completed more than 540 hours of applied SOC training
-                through DEPI and NTI, in addition to Fortinet cybersecurity
-                training, networking training and eJPTv1-oriented
-                penetration testing.
+                My interests cover Security Operations, network defense,
+                vulnerability assessment, security monitoring and
+                understanding how attacks move through modern networks.
 
             </p>
 
 
-            <br>
-
-
             <p>
 
-                I am seeking opportunities in SOC Operations,
-                Cybersecurity and Networking where I can contribute
-                to security monitoring, threat analysis, incident response
-                and secure enterprise environments.
+                I enjoy working with practical labs and security tools,
+                analyzing network activity, identifying security issues
+                and continuously improving my defensive security skills.
 
             </p>
+
+
+            <div class="about-metrics">
+
+
+                <div class="metric">
+
+                    <strong>
+                        7+
+                    </strong>
+
+                    <span>
+                        Security Certifications
+                    </span>
+
+                </div>
+
+
+                <div class="metric">
+
+                    <strong>
+                        SOC
+                    </strong>
+
+                    <span>
+                        Security Operations
+                    </span>
+
+                </div>
+
+
+                <div class="metric">
+
+                    <strong>
+                        24/7
+                    </strong>
+
+                    <span>
+                        Security Mindset
+                    </span>
+
+                </div>
+
+
+            </div>
+
 
         </div>
 
     </div>
 
+
+
+    <!-- SOC MONITOR -->
+
+    <div class="monitor glass reveal">
+
+
+        <div class="monitor-head">
+
+            <h3>
+                LIVE SECURITY EVENT MONITOR
+            </h3>
+
+            <span class="live">
+                ● LIVE
+            </span>
+
+        </div>
+
+
+        <div class="alert-row">
+
+            <div class="alert-time">
+                21:04:11
+            </div>
+
+            <div class="alert-message">
+                Network traffic anomaly analyzed
+            </div>
+
+            <div class="alert-status safe">
+                NORMAL
+            </div>
+
+        </div>
+
+
+        <div class="alert-row">
+
+            <div class="alert-time">
+                21:04:18
+            </div>
+
+            <div class="alert-message">
+                Authentication activity monitored
+            </div>
+
+            <div class="alert-status safe">
+                VERIFIED
+            </div>
+
+        </div>
+
+
+        <div class="alert-row">
+
+            <div class="alert-time">
+                21:04:26
+            </div>
+
+            <div class="alert-message">
+                Suspicious packet pattern detected
+            </div>
+
+            <div class="alert-status detected">
+                ANALYZING
+            </div>
+
+        </div>
+
+
+        <div class="alert-row">
+
+            <div class="alert-time">
+                21:04:39
+            </div>
+
+            <div class="alert-message">
+                Endpoint security telemetry received
+            </div>
+
+            <div class="alert-status safe">
+                SECURE
+            </div>
+
+        </div>
+
+
+    </div>
+
 </section>
+
 
 
 <!-- =========================================================
@@ -1560,120 +2638,210 @@ footer span {
 
 <section id="skills">
 
-    <div class="container">
 
-        <h2 class="section-title">
-            Technical <span>Skills</span>
-        </h2>
-
-
-        <p class="section-subtitle">
-            Core cybersecurity, networking and infrastructure skills.
-        </p>
+    <div class="section-label reveal">
+        02 / CAPABILITIES
+    </div>
 
 
-        <div class="skills-grid">
+    <h2 class="section-title reveal">
+
+        Security <span>Stack</span>
+
+    </h2>
 
 
-            <div class="skill-card reveal">
+    <p class="section-subtitle reveal">
 
-                <i class="fa-solid fa-shield-halved"></i>
+        Practical areas and technologies used across cybersecurity,
+        networking and security operations environments.
 
-                <h3>
-                    Security Operations
-                </h3>
+    </p>
 
-                <p>
-                    SOC Operations, Threat Monitoring,
-                    Incident Response and Security Analysis.
-                </p>
 
+    <div class="skills-grid">
+
+
+        <div class="skill-card glass reveal">
+
+            <div class="skill-number">
+                01
             </div>
 
+            <h3>
+                SOC Operations
+            </h3>
 
-            <div class="skill-card reveal">
+            <p>
+                Security monitoring, alert triage,
+                incident analysis and defensive workflows.
+            </p>
 
-                <i class="fa-solid fa-network-wired"></i>
-
-                <h3>
-                    Network Security
-                </h3>
-
-                <p>
-                    Network Security, CCNA concepts,
-                    network design, management and troubleshooting.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card reveal">
-
-                <i class="fa-solid fa-fire"></i>
-
-                <h3>
-                    Firewalls
-                </h3>
-
-                <p>
-                    Firewall concepts, traffic filtering,
-                    security policies and enterprise defense.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card reveal">
-
-                <i class="fa-solid fa-server"></i>
-
-                <h3>
-                    Systems
-                </h3>
-
-                <p>
-                    Windows, Windows Server and Linux environments.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card reveal">
-
-                <i class="fa-brands fa-python"></i>
-
-                <h3>
-                    Programming
-                </h3>
-
-                <p>
-                    Python and C++ fundamentals for
-                    technical and security tasks.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card reveal">
-
-                <i class="fa-solid fa-diagram-project"></i>
-
-                <h3>
-                    Enterprise Networking
-                </h3>
-
-                <p>
-                    Creating, managing and securing
-                    enterprise network environments.
-                </p>
-
+            <div class="skill-line">
+                <span style="width:90%"></span>
             </div>
 
         </div>
 
+
+        <div class="skill-card glass reveal">
+
+            <div class="skill-number">
+                02
+            </div>
+
+            <h3>
+                Network Security
+            </h3>
+
+            <p>
+                TCP/IP, VLANs, routing, switching,
+                network monitoring and defense.
+            </p>
+
+            <div class="skill-line">
+                <span style="width:92%"></span>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card glass reveal">
+
+            <div class="skill-number">
+                03
+            </div>
+
+            <h3>
+                Vulnerability Assessment
+            </h3>
+
+            <p>
+                Security testing, vulnerability identification
+                and risk-oriented analysis.
+            </p>
+
+            <div class="skill-line">
+                <span style="width:84%"></span>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card glass reveal">
+
+            <div class="skill-number">
+                04
+            </div>
+
+            <h3>
+                Linux Security
+            </h3>
+
+            <p>
+                Linux administration, security tooling,
+                command-line workflows and labs.
+            </p>
+
+            <div class="skill-line">
+                <span style="width:82%"></span>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card glass reveal">
+
+            <div class="skill-number">
+                05
+            </div>
+
+            <h3>
+                Wireshark
+            </h3>
+
+            <p>
+                Packet analysis, traffic inspection
+                and network troubleshooting.
+            </p>
+
+            <div class="skill-line">
+                <span style="width:88%"></span>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card glass reveal">
+
+            <div class="skill-number">
+                06
+            </div>
+
+            <h3>
+                Nmap
+            </h3>
+
+            <p>
+                Network discovery, service enumeration
+                and security lab assessment.
+            </p>
+
+            <div class="skill-line">
+                <span style="width:87%"></span>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card glass reveal">
+
+            <div class="skill-number">
+                07
+            </div>
+
+            <h3>
+                Burp Suite
+            </h3>
+
+            <p>
+                Web security testing, request analysis
+                and vulnerability assessment.
+            </p>
+
+            <div class="skill-line">
+                <span style="width:80%"></span>
+            </div>
+
+        </div>
+
+
+        <div class="skill-card glass reveal">
+
+            <div class="skill-number">
+                08
+            </div>
+
+            <h3>
+                Metasploit
+            </h3>
+
+            <p>
+                Controlled security testing and
+                vulnerability validation in labs.
+            </p>
+
+            <div class="skill-line">
+                <span style="width:78%"></span>
+            </div>
+
+        </div>
+
+
     </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -1682,327 +2850,202 @@ footer span {
 
 <section id="certifications">
 
-    <div class="container">
 
-        <h2 class="section-title">
-            <span>Certifications</span>
-        </h2>
-
-
-        <p class="section-subtitle">
-            Professional certifications and completed training certificates.
-            Click any certificate to view it.
-        </p>
+    <div class="section-label reveal">
+        03 / CREDENTIALS
+    </div>
 
 
-        <div class="cert-grid">
+    <h2 class="section-title reveal">
+
+        Security <span>Certifications</span>
+
+    </h2>
 
 
-            <!-- SOC -->
+    <p class="section-subtitle reveal">
 
-            <div class="cert-card reveal"
+        Professional learning milestones across cybersecurity,
+        networking, ethical hacking and infrastructure security.
 
-                 onclick="openCertificate(
-                    'Security Operation Center (SOC) Engineering',
-                    'certificates/SOC.jpeg',
-                    'image'
-                 )">
-
-                <div class="cert-icon">
-
-                    <i class="fa-solid fa-user-shield"></i>
-
-                </div>
+    </p>
 
 
-                <h3>
-                    Security Operation Center (SOC) Engineering
-                </h3>
+    <div class="cert-grid">
 
 
-                <p>
+        <div
+            class="cert-card glass reveal"
+            onclick="openCertificate('image','certificates/SOC.jpeg')"
+        >
 
-                    DEPI & NTI · 540 Hours · Score 96%
-
-                    <br>
-
-                    Jan – Apr 2026
-
-                </p>
-
-
-                <span class="view-cert">
-
-                    <i class="fa-solid fa-eye"></i>
-
-                    Click to view certificate
-
-                </span>
-
+            <div class="cert-index">
+                CERT_01
             </div>
 
+            <h3>
+                SOC
+            </h3>
 
-            <!-- FORTINET -->
+            <p>
+                Security Operations Center
+            </p>
 
-            <div class="cert-card reveal"
-
-                 onclick="openCertificate(
-                    'Fortinet Cybersecurity',
-                    'certificates/Fortinet.jpeg',
-                    'image'
-                 )">
-
-                <div class="cert-icon">
-
-                    <i class="fa-solid fa-lock"></i>
-
-                </div>
-
-
-                <h3>
-                    Fortinet Cybersecurity
-                </h3>
-
-
-                <p>
-
-                    Digital Egypt Youth Program – NTI
-
-                    <br>
-
-                    120 Hours · Score 90%
-
-                    <br>
-
-                    Apr – May 2026
-
-                </p>
-
-
-                <span class="view-cert">
-
-                    <i class="fa-solid fa-eye"></i>
-
-                    Click to view certificate
-
-                </span>
-
+            <div class="cert-open">
+                VIEW CERTIFICATE →
             </div>
-
-
-            <!-- CCNA 1 -->
-
-            <div class="cert-card reveal"
-
-                 onclick="openCertificate(
-                    'CCNA: Introduction to Networks',
-                    'certificates/CCNA1.jpeg',
-                    'image'
-                 )">
-
-                <div class="cert-icon">
-
-                    <i class="fa-solid fa-network-wired"></i>
-
-                </div>
-
-
-                <h3>
-                    CCNA: Introduction to Networks
-                </h3>
-
-
-                <p>
-
-                    Cisco Networking Academy
-
-                    <br>
-
-                    Arab Open University – Egypt
-
-                </p>
-
-
-                <span class="view-cert">
-
-                    <i class="fa-solid fa-eye"></i>
-
-                    Click to view certificate
-
-                </span>
-
-            </div>
-
-
-            <!-- CCNA 2 -->
-
-            <div class="cert-card reveal"
-
-                 onclick="openCertificate(
-                    'CCNA: Switching, Routing, and Wireless Essentials',
-                    'certificates/CCNA 2.jpeg',
-                    'image'
-                 )">
-
-                <div class="cert-icon">
-
-                    <i class="fa-solid fa-route"></i>
-
-                </div>
-
-
-                <h3>
-                    CCNA: Switching, Routing, and Wireless Essentials
-                </h3>
-
-
-                <p>
-
-                    Cisco Networking Academy
-
-                    <br>
-
-                    Arab Open University – Egypt
-
-                </p>
-
-
-                <span class="view-cert">
-
-                    <i class="fa-solid fa-eye"></i>
-
-                    Click to view certificate
-
-                </span>
-
-            </div>
-
-
-            <!-- CCNA NET -->
-
-            <div class="cert-card reveal"
-
-                 onclick="openCertificate(
-                    'CCNA: Enterprise Networking, Security, and Automation',
-                    'certificates/CCNA net.jpeg',
-                    'image'
-                 )">
-
-                <div class="cert-icon">
-
-                    <i class="fa-solid fa-sitemap"></i>
-
-                </div>
-
-
-                <h3>
-                    CCNA: Enterprise Networking, Security, and Automation
-                </h3>
-
-
-                <p>
-
-                    Cisco Networking Academy
-
-                    <br>
-
-                    Arab Open University – Egypt
-
-                </p>
-
-
-                <span class="view-cert">
-
-                    <i class="fa-solid fa-eye"></i>
-
-                    Click to view certificate
-
-                </span>
-
-            </div>
-
-
-            <!-- ETHICAL HACKING -->
-
-            <div class="cert-card reveal"
-
-                 onclick="openCertificate(
-                    'Ethical Hacking',
-                    'certificates/ethicalhacking.png',
-                    'image'
-                 )">
-
-                <div class="cert-icon">
-
-                    <i class="fa-solid fa-user-secret"></i>
-
-                </div>
-
-
-                <h3>
-                    Ethical Hacking
-                </h3>
-
-
-                <p>
-                    Ethical Hacking Training
-                </p>
-
-
-                <span class="view-cert">
-
-                    <i class="fa-solid fa-eye"></i>
-
-                    Click to view certificate
-
-                </span>
-
-            </div>
-
-
-            <!-- RED HAT -->
-
-            <div class="cert-card reveal"
-
-                 onclick="openCertificate(
-                    'Red Hat',
-                    'certificates/redhat.png',
-                    'image'
-                 )">
-
-                <div class="cert-icon">
-
-                    <i class="fa-brands fa-redhat"></i>
-
-                </div>
-
-
-                <h3>
-                    Red Hat
-                </h3>
-
-
-                <p>
-                    Red Hat Training Certificate
-                </p>
-
-
-                <span class="view-cert">
-
-                    <i class="fa-solid fa-eye"></i>
-
-                    Click to view certificate
-
-                </span>
-
-            </div>
-
 
         </div>
+
+
+        <div
+            class="cert-card glass reveal"
+            onclick="openCertificate('image','certificates/Fortinet.jpeg')"
+        >
+
+            <div class="cert-index">
+                CERT_02
+            </div>
+
+            <h3>
+                Fortinet
+            </h3>
+
+            <p>
+                Network Security
+            </p>
+
+            <div class="cert-open">
+                VIEW CERTIFICATE →
+            </div>
+
+        </div>
+
+
+        <div
+            class="cert-card glass reveal"
+            onclick="openCertificate('image','certificates/CCNA1.jpeg')"
+        >
+
+            <div class="cert-index">
+                CERT_03
+            </div>
+
+            <h3>
+                CCNA1
+            </h3>
+
+            <p>
+                Enterprise Networking
+            </p>
+
+            <div class="cert-open">
+                VIEW CERTIFICATE →
+            </div>
+
+        </div>
+
+
+        <div
+            class="cert-card glass reveal"
+            onclick="openCertificate('image','certificates/CCNA 2.jpeg')"
+        >
+
+            <div class="cert-index">
+                CERT_04
+            </div>
+
+            <h3>
+                CCNA 2
+            </h3>
+
+            <p>
+                CCNA: Switching, Routing, and Wireless Essentials
+            </p>
+
+            <div class="cert-open">
+                VIEW CERTIFICATE →
+            </div>
+
+        </div>
+
+
+        <div
+            class="cert-card glass reveal"
+            onclick="openCertificate('image','certificates/CCNA net.jpeg')"
+        >
+
+            <div class="cert-index">
+                CERT_05
+            </div>
+
+            <h3>
+                CCNA net
+            </h3>
+
+            <p>
+                Introduction to Networks
+            </p>
+
+            <div class="cert-open">
+                VIEW CERTIFICATE →
+            </div>
+
+        </div>
+
+
+        <div
+            class="cert-card glass reveal"
+            onclick="openCertificate('image','certificates/ethicalhacking.png')"
+        >
+
+            <div class="cert-index">
+                CERT_06
+            </div>
+
+            <h3>
+                Ethical Hacking
+            </h3>
+
+            <p>
+                Ethical Hacking & Security Testing
+            </p>
+
+            <div class="cert-open">
+                VIEW CERTIFICATE →
+            </div>
+
+        </div>
+
+
+        <div
+            class="cert-card glass reveal"
+            onclick="openCertificate('image','certificates/redhat.png')"
+        >
+
+            <div class="cert-index">
+                CERT_07
+            </div>
+
+            <h3>
+                Red Hat
+            </h3>
+
+            <p>
+                Linux & Infrastructure
+            </p>
+
+            <div class="cert-open">
+                VIEW CERTIFICATE →
+            </div>
+
+        </div>
+
 
     </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -2011,105 +3054,114 @@ footer span {
 
 <section id="training">
 
-    <div class="container">
 
-        <h2 class="section-title">
-            Professional <span>Training</span>
-        </h2>
-
-
-        <p class="section-subtitle">
-            Practical cybersecurity and networking training.
-        </p>
+    <div class="section-label reveal">
+        04 / LEARNING
+    </div>
 
 
-        <div class="timeline">
+    <h2 class="section-title reveal">
+
+        Training & <span>Development</span>
+
+    </h2>
 
 
-            <div class="timeline-item reveal">
+    <p class="section-subtitle reveal">
+
+        Practical training focused on infrastructure,
+        cybersecurity and security operations.
+
+    </p>
+
+
+    <div class="training-list">
+
+
+        <div class="training glass reveal">
+
+            <div class="training-year">
+                2026
+            </div>
+
+            <div>
 
                 <h3>
-                    SOC Engineering Track
+                    Cybersecurity & SOC Training
                 </h3>
 
                 <p>
-                    DEPI in partnership with NTI · Egypt
-                    <br>
-                    Jan 2026 – Apr 2026
-                    <br>
-                    540 Hours · Final Score: 96%
-                </p>
-
-                <p>
-                    Threat detection, security monitoring,
-                    SOC operations and incident response workflows.
+                    Security monitoring, incident response,
+                    SIEM concepts, network security,
+                    threat analysis and defensive workflows.
                 </p>
 
             </div>
 
-
-            <div class="timeline-item reveal">
-
-                <h3>
-                    Fortinet Cybersecurity Track
-                </h3>
-
-                <p>
-                    Digital Egypt Youth Program – NTI · Egypt
-                    <br>
-                    Apr 2026 – May 2026
-                    <br>
-                    90 Technical + 30 Soft Skills Hours · Score: 90%
-                </p>
-
-                <p>
-                    Fortinet security solutions and enterprise
-                    cybersecurity defense concepts.
-                </p>
-
-            </div>
-
-
-            <div class="timeline-item reveal">
-
-                <h3>
-                    Networking Track
-                </h3>
-
-                <p>
-                    NTI in collaboration with Creativa · Egypt
-                </p>
-
-                <p>
-                    Core networking concepts, practical networking
-                    skills and network troubleshooting.
-                </p>
-
-            </div>
-
-
-            <div class="timeline-item reveal">
-
-                <h3>
-                    eLearnSecurity Junior Penetration Tester (eJPTv1)
-                </h3>
-
-                <p>
-                    Red Nexis under Hossam Shady · Egypt
-                </p>
-
-                <p>
-                    Practical penetration testing with fundamentals
-                    of network and web security testing.
-                </p>
-
+            <div class="training-tag">
+                COMPLETED
             </div>
 
         </div>
 
+
+        <div class="training glass reveal">
+
+            <div class="training-year">
+                2026
+            </div>
+
+            <div>
+
+                <h3>
+                    Network Security Training
+                </h3>
+
+                <p>
+                    Enterprise networking, switching,
+                    routing, VLANs and network security fundamentals.
+                </p>
+
+            </div>
+
+            <div class="training-tag">
+                TRAINING
+            </div>
+
+        </div>
+
+
+        <div class="training glass reveal">
+
+            <div class="training-year">
+                2026
+            </div>
+
+            <div>
+
+                <h3>
+                    Ethical Hacking Training
+                </h3>
+
+                <p>
+                    Controlled penetration testing,
+                    reconnaissance, vulnerability assessment
+                    and web security testing.
+                </p>
+
+            </div>
+
+            <div class="training-tag">
+                TRAINING
+            </div>
+
+        </div>
+
+
     </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -2118,196 +3170,147 @@ footer span {
 
 <section id="projects">
 
-    <div class="container">
 
-        <h2 class="section-title">
-            Security <span>Projects</span>
-        </h2>
-
-
-        <p class="section-subtitle">
-            Practical cybersecurity and enterprise networking labs.
-        </p>
+    <div class="section-label reveal">
+        05 / OPERATIONS
+    </div>
 
 
-        <div class="projects-grid">
+    <h2 class="section-title reveal">
+
+        Security <span>Projects</span>
+
+    </h2>
 
 
-            <div class="project-card featured reveal">
+    <p class="section-subtitle reveal">
 
-                <span class="project-number">
-                    01 · SOC
-                </span>
+        Practical cybersecurity and networking projects
+        built through hands-on learning and security labs.
 
-                <h3>
-                    SOC Monitoring & Incident Response Lab
-                </h3>
+    </p>
 
-                <p>
-                    Practical SOC environment focused on security
-                    alert analysis, threat investigation, incident
-                    response workflows and identifying Indicators
-                    of Compromise (IOCs).
-                </p>
 
-                <div class="tags">
+    <div class="project-grid">
 
-                    <span class="tag">SOC</span>
-                    <span class="tag">Incident Response</span>
-                    <span class="tag">Threat Analysis</span>
-                    <span class="tag">Log Analysis</span>
-                    <span class="tag">IOC</span>
 
-                </div>
+        <div class="project-card project-main glass reveal">
 
+
+            <div class="project-code">
+                PROJECT_001 / CYBERSECURITY
             </div>
 
 
-            <div class="project-card reveal">
+            <h3>
+                Cybersecurity & Network Defense Labs
+            </h3>
 
-                <span class="project-number">
-                    02 · NETWORK SECURITY
+
+            <p>
+
+                Hands-on security environments focused on network
+                architecture, monitoring, vulnerability assessment,
+                packet analysis and controlled security testing.
+
+            </p>
+
+
+            <div class="project-tags">
+
+                <span>
+                    GNS3
                 </span>
 
-                <h3>
-                    Enterprise Network Design & Security Lab
-                </h3>
+                <span>
+                    Wireshark
+                </span>
 
-                <p>
-                    Designed and configured a multi-site enterprise
-                    network environment with VLAN segmentation,
-                    routing, redundancy and network troubleshooting.
-                </p>
+                <span>
+                    Nmap
+                </span>
 
-                <div class="tags">
+                <span>
+                    Kali Linux
+                </span>
 
-                    <span class="tag">GNS3</span>
-                    <span class="tag">VLAN</span>
-                    <span class="tag">OSPF</span>
-                    <span class="tag">HSRP</span>
-                    <span class="tag">VLSM</span>
+                <span>
+                    Burp Suite
+                </span>
 
-                </div>
+                <span>
+                    Metasploit
+                </span>
 
             </div>
 
-
-            <div class="project-card reveal">
-
-                <span class="project-number">
-                    03 · VULNERABILITY
-                </span>
-
-                <h3>
-                    Vulnerability Assessment Lab
-                </h3>
-
-                <p>
-                    Performed vulnerability discovery, security
-                    scanning, risk analysis and security reporting
-                    in a controlled lab environment.
-                </p>
-
-                <div class="tags">
-
-                    <span class="tag">Nessus</span>
-                    <span class="tag">Nmap</span>
-                    <span class="tag">Kali Linux</span>
-                    <span class="tag">Security Scanning</span>
-
-                </div>
-
-            </div>
-
-
-            <div class="project-card reveal">
-
-                <span class="project-number">
-                    04 · SECURITY TESTING
-                </span>
-
-                <h3>
-                    Web & Network Security Testing Lab
-                </h3>
-
-                <p>
-                    Conducted controlled security testing including
-                    enumeration, service discovery and web application
-                    security validation.
-                </p>
-
-                <div class="tags">
-
-                    <span class="tag">Kali Linux</span>
-                    <span class="tag">Nmap</span>
-                    <span class="tag">Burp Suite</span>
-                    <span class="tag">Metasploit</span>
-
-                </div>
-
-            </div>
-
-
-            <div class="project-card reveal">
-
-                <span class="project-number">
-                    05 · PHISHING
-                </span>
-
-                <h3>
-                    Phishing & IOC Analysis Lab
-                </h3>
-
-                <p>
-                    Analyzed simulated phishing emails, suspicious
-                    URLs, email indicators and extracted IOCs as
-                    part of a SOC-oriented investigation workflow.
-                </p>
-
-                <div class="tags">
-
-                    <span class="tag">Phishing</span>
-                    <span class="tag">IOC</span>
-                    <span class="tag">Email Security</span>
-                    <span class="tag">SOC</span>
-
-                </div>
-
-            </div>
-
-
-            <div class="project-card reveal">
-
-                <span class="project-number">
-                    06 · SYSTEMS
-                </span>
-
-                <h3>
-                    Windows & Linux Security Lab
-                </h3>
-
-                <p>
-                    Practical work with Windows Server and Linux
-                    systems, network configuration, system
-                    administration and security troubleshooting.
-                </p>
-
-                <div class="tags">
-
-                    <span class="tag">Windows Server</span>
-                    <span class="tag">Linux</span>
-                    <span class="tag">Networking</span>
-                    <span class="tag">Security</span>
-
-                </div>
-
-            </div>
 
         </div>
+
+
+
+        <div class="project-card project-side glass reveal">
+
+
+            <div class="project-side-item">
+
+                <small>
+                    NETWORK
+                </small>
+
+                <strong>
+                    VLAN / Routing / Switching
+                </strong>
+
+            </div>
+
+
+            <div class="project-side-item">
+
+                <small>
+                    SECURITY
+                </small>
+
+                <strong>
+                    Vulnerability Assessment
+                </strong>
+
+            </div>
+
+
+            <div class="project-side-item">
+
+                <small>
+                    MONITORING
+                </small>
+
+                <strong>
+                    Traffic & Alert Analysis
+                </strong>
+
+            </div>
+
+
+            <div class="project-side-item">
+
+                <small>
+                    ENVIRONMENT
+                </small>
+
+                <strong>
+                    Linux / GNS3 / Kali
+                </strong>
+
+            </div>
+
+
+        </div>
+
 
     </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -2316,63 +3319,55 @@ footer span {
 
 <section id="education">
 
-    <div class="container">
 
-        <h2 class="section-title">
-            <span>Education</span>
-        </h2>
-
-
-        <p class="section-subtitle">
-            Academic background and relevant studies.
-        </p>
+    <div class="section-label reveal">
+        06 / ACADEMIC
+    </div>
 
 
-        <div class="education-card reveal">
+    <h2 class="section-title reveal">
 
-            <h3>
-                Cisco Certified Network Associate (CCNA) — Full Track
-            </h3>
+        <span>Education</span>
 
-            <p>
-                Cisco Networking Academy · Arab Open University – Egypt
-            </p>
+    </h2>
 
-            <br>
 
-            <p>
-                Completed the three major CCNA learning modules:
-                Introduction to Networks, Switching, Routing and
-                Wireless Essentials, and Enterprise Networking,
-                Security and Automation.
-            </p>
+    <div class="education glass reveal">
 
+
+        <div class="education-year">
+            2022 — 2026
         </div>
 
 
-        <div class="education-card reveal">
+        <div>
 
             <h3>
-                B.Sc. Program — Relevant Coursework
+                Bachelor of Artificial Intelligence
             </h3>
 
-            <p>
-                Arab Open University (AOU) – Egypt
-            </p>
-
-            <br>
 
             <p>
-                Relevant coursework includes Network Creation &
-                Management, Network Security and Operating Systems
-                including Windows and Linux.
+                Delta University for Science and Technology
             </p>
+
+
+            <p>
+
+                Focused on Artificial Intelligence with
+                cybersecurity-oriented technical development,
+                networking and security operations.
+
+            </p>
+
 
         </div>
+
 
     </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -2381,85 +3376,215 @@ footer span {
 
 <section id="contact">
 
-    <div class="container">
 
-        <div class="contact-box reveal">
+    <div class="section-label reveal">
+        07 / CONNECT
+    </div>
 
-            <h2 class="section-title">
-                Let's <span>Connect</span>
-            </h2>
+
+    <h2 class="section-title reveal">
+
+        Establish a <span>Connection</span>
+
+    </h2>
+
+
+    <p class="section-subtitle reveal">
+
+        Open to cybersecurity, network security and SOC opportunities.
+
+    </p>
+
+
+    <div class="contact-box glass reveal">
+
+
+        <div class="contact-intro">
+
+
+            <h3>
+
+                Let's build a more
+
+                <span>
+                    secure
+                </span>
+
+                digital world.
+
+            </h3>
 
 
             <p>
-                Open to opportunities in SOC Operations,
-                Cybersecurity and Networking.
+
+                For professional opportunities, collaboration,
+                cybersecurity projects or networking discussions,
+                feel free to connect through any of the channels.
+
             </p>
 
 
-            <div class="socials">
+        </div>
 
 
-                <!-- EMAIL -->
 
-                <a class="social"
-                   href="mailto:ahmed.sokker.soc@gmail.com"
-                   title="Email">
+        <div class="contact-links">
+
+
+            <!-- EMAIL -->
+
+            <a
+                class="contact-link"
+                href="mailto:ahmed.sokker.soc@gmail.com"
+            >
+
+                <div class="contact-icon">
 
                     <i class="fa-solid fa-envelope"></i>
 
-                </a>
+                </div>
 
 
-                <!-- LINKEDIN -->
+                <div class="contact-info">
 
-                <a class="social"
-                   href="https://www.linkedin.com/in/ahmed-sokker-204187357/"
-                   target="_blank"
-                   rel="noopener"
-                   title="LinkedIn">
+                    <small>
+                        EMAIL
+                    </small>
 
-                    <i class="fa-brands fa-linkedin-in"></i>
+                    <span>
+                        ahmed.sokker.soc@gmail.com
+                    </span>
 
-                </a>
+                </div>
 
-
-                <!-- GITHUB -->
-
-                <a class="social"
-                   href="https://github.com/Sokker20"
-                   target="_blank"
-                   rel="noopener"
-                   title="GitHub">
-
-                    <i class="fa-brands fa-github"></i>
-
-                </a>
+            </a>
 
 
-                <!-- FACEBOOK -->
 
-                <a class="social"
-                   href="https://www.facebook.com/share/19DmVU5sba/"
-                   target="_blank"
-                   rel="noopener"
-                   title="Facebook">
+            <!-- PHONE -->
 
-                    <i class="fa-brands fa-facebook-f"></i>
+            <a
+                class="contact-link"
+                href="tel:+201006079635"
+            >
 
-                </a>
-
-
-                <!-- PHONE -->
-
-                <a class="social"
-                   href="tel:+201006079635"
-                   title="Phone">
+                <div class="contact-icon">
 
                     <i class="fa-solid fa-phone"></i>
 
-                </a>
+                </div>
 
-            </div>
+
+                <div class="contact-info">
+
+                    <small>
+                        PHONE
+                    </small>
+
+                    <span>
+                        +20 100 607 9635
+                    </span>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- LINKEDIN -->
+
+            <a
+                class="contact-link"
+                href="https://www.linkedin.com/in/ahmed-sokker-204187357/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <div class="contact-icon">
+
+                    <i class="fa-brands fa-linkedin-in"></i>
+
+                </div>
+
+
+                <div class="contact-info">
+
+                    <small>
+                        LINKEDIN
+                    </small>
+
+                    <span>
+                        Professional Profile
+                    </span>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- GITHUB -->
+
+            <a
+                class="contact-link"
+                href="https://github.com/Sokker20"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <div class="contact-icon">
+
+                    <i class="fa-brands fa-github"></i>
+
+                </div>
+
+
+                <div class="contact-info">
+
+                    <small>
+                        GITHUB
+                    </small>
+
+                    <span>
+                        github.com/Sokker20
+                    </span>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- FACEBOOK -->
+
+            <a
+                class="contact-link"
+                href="https://www.facebook.com/share/19DmVU5sba/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <div class="contact-icon">
+
+                    <i class="fa-brands fa-facebook-f"></i>
+
+                </div>
+
+
+                <div class="contact-info">
+
+                    <small>
+                        FACEBOOK
+                    </small>
+
+                    <span>
+                        Social Profile
+                    </span>
+
+                </div>
+
+            </a>
+
 
         </div>
 
@@ -2468,71 +3593,71 @@ footer span {
 </section>
 
 
+
 <!-- =========================================================
      FOOTER
 ========================================================= -->
 
 <footer>
 
-    <div class="container">
 
-        <p>
+    <div>
 
-            © 2026
+        © 2026
 
-            <span>
-                Ahmed Atia Abd-Elmonem Sokker
-            </span>
-
-            · All Rights Reserved.
-
-        </p>
+        <strong>
+            Ahmed Atia Sokker
+        </strong>
 
     </div>
+
+
+    <div>
+
+        CYBERSECURITY • NETWORK SECURITY • SOC
+
+    </div>
+
 
 </footer>
 
 
+
 <!-- =========================================================
-     CERTIFICATE POPUP
+     CERTIFICATE MODAL
 ========================================================= -->
 
-<div class="modal" id="certificateModal">
+<div
+    class="modal"
+    id="certificateModal"
+>
 
 
     <div class="modal-content">
 
 
-        <div class="modal-header">
+        <button
+            class="modal-close"
+            onclick="closeCertificate()"
+        >
 
-            <h3 id="certificateTitle">
-                Certificate
-            </h3>
+            ×
 
+        </button>
 
-            <button
-                class="close"
-                onclick="closeCertificate()">
-
-                &times;
-
-            </button>
-
-        </div>
-
-
-        <!-- IMAGE CERTIFICATES -->
 
         <img
             id="certificateImage"
-            alt="Certificate">
+            src=""
+            alt="Certificate"
+        >
 
-
-        <!-- PDF CERTIFICATES -->
 
         <iframe
             id="certificatePDF"
-            title="Certificate PDF">
+            src=""
+            style="display:none;"
+        >
         </iframe>
 
 
@@ -2541,178 +3666,623 @@ footer span {
 </div>
 
 
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
 
 <script>
 
 
 /* =========================================================
-   OPEN CERTIFICATE
+   PHOTO FALLBACK
 ========================================================= */
 
-function openCertificate(title, file, type) {
-
-    const modal =
-        document.getElementById("certificateModal");
-
-    const titleElement =
-        document.getElementById("certificateTitle");
+function showPhotoFallback(){
 
     const image =
-        document.getElementById("certificateImage");
+        document.getElementById("ahmedPhoto");
 
-    const pdf =
-        document.getElementById("certificatePDF");
+    const fallback =
+        document.getElementById("photoFallback");
 
+    if(image){
 
-    titleElement.textContent = title;
-
-
-    /* Reset */
-
-    image.style.display = "none";
-
-    pdf.style.display = "none";
-
-    image.src = "";
-
-    pdf.src = "";
-
-
-    /* IMAGE */
-
-    if (type === "image") {
-
-        image.src = file;
-
-        image.style.display = "block";
+        image.style.display = "none";
 
     }
 
+    if(fallback){
 
-    /* PDF */
-
-    if (type === "pdf") {
-
-        pdf.src = file;
-
-        pdf.style.display = "block";
+        fallback.style.display = "flex";
 
     }
-
-
-    modal.classList.add("active");
-
-
-    document.body.style.overflow = "hidden";
 
 }
 
 
 /* =========================================================
-   CLOSE CERTIFICATE
+   NETWORK ANIMATION
 ========================================================= */
 
-function closeCertificate() {
+const canvas =
+    document.getElementById("networkCanvas");
 
-    const modal =
-        document.getElementById("certificateModal");
-
-    const image =
-        document.getElementById("certificateImage");
-
-    const pdf =
-        document.getElementById("certificatePDF");
+const ctx =
+    canvas.getContext("2d");
 
 
-    modal.classList.remove("active");
+let nodes = [];
 
 
-    image.src = "";
+let mouse = {
 
-    pdf.src = "";
+    x:null,
+
+    y:null
+
+};
 
 
-    document.body.style.overflow = "auto";
+function resizeCanvas(){
+
+    canvas.width =
+        window.innerWidth;
+
+    canvas.height =
+        window.innerHeight;
+
+    createNodes();
 
 }
 
 
-/* =========================================================
-   CLOSE WHEN CLICKING OUTSIDE
-========================================================= */
+function createNodes(){
 
-document
-    .getElementById("certificateModal")
-    .addEventListener("click", function(event) {
+    nodes = [];
 
-        if (event.target === this) {
 
-            closeCertificate();
+    const amount =
+        window.innerWidth < 700
+            ? 35
+            : 70;
+
+
+    for(
+        let i=0;
+        i<amount;
+        i++
+    ){
+
+        nodes.push({
+
+            x:
+                Math.random()
+                *
+                canvas.width,
+
+            y:
+                Math.random()
+                *
+                canvas.height,
+
+            vx:
+                (Math.random()-.5)
+                *
+                .35,
+
+            vy:
+                (Math.random()-.5)
+                *
+                .35,
+
+            r:
+                Math.random()
+                *
+                1.7
+                +
+                .5
+
+        });
+
+    }
+
+}
+
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+window.addEventListener(
+    "mousemove",
+    (e)=>{
+
+        mouse.x =
+            e.clientX;
+
+        mouse.y =
+            e.clientY;
+
+    }
+);
+
+
+window.addEventListener(
+    "mouseleave",
+    ()=>{
+
+        mouse.x=null;
+
+        mouse.y=null;
+
+    }
+);
+
+
+function animateNetwork(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    nodes.forEach(
+        (node,index)=>{
+
+
+            node.x +=
+                node.vx;
+
+            node.y +=
+                node.vy;
+
+
+            if(
+                node.x < 0 ||
+                node.x > canvas.width
+            ){
+
+                node.vx *= -1;
+
+            }
+
+
+            if(
+                node.y < 0 ||
+                node.y > canvas.height
+            ){
+
+                node.vy *= -1;
+
+            }
+
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+                node.x,
+                node.y,
+                node.r,
+                0,
+                Math.PI*2
+            );
+
+
+            ctx.fillStyle =
+                "rgba(0,240,255,.65)";
+
+
+            ctx.fill();
+
+
+            for(
+                let j=index+1;
+                j<nodes.length;
+                j++
+            ){
+
+                const other =
+                    nodes[j];
+
+
+                const dx =
+                    node.x-other.x;
+
+                const dy =
+                    node.y-other.y;
+
+
+                const distance =
+                    Math.sqrt(
+                        dx*dx +
+                        dy*dy
+                    );
+
+
+                if(
+                    distance < 125
+                ){
+
+                    ctx.beginPath();
+
+
+                    ctx.moveTo(
+                        node.x,
+                        node.y
+                    );
+
+
+                    ctx.lineTo(
+                        other.x,
+                        other.y
+                    );
+
+
+                    ctx.strokeStyle =
+                        `rgba(
+                            0,
+                            220,
+                            240,
+                            ${
+                                .12 -
+                                (
+                                    distance/125
+                                )*.1
+                            }
+                        )`;
+
+
+                    ctx.lineWidth=.7;
+
+
+                    ctx.stroke();
+
+                }
+
+            }
+
+
+            if(
+                mouse.x !== null
+            ){
+
+                const dx =
+                    node.x -
+                    mouse.x;
+
+                const dy =
+                    node.y -
+                    mouse.y;
+
+
+                const distance =
+                    Math.sqrt(
+                        dx*dx +
+                        dy*dy
+                    );
+
+
+                if(
+                    distance < 170
+                ){
+
+                    ctx.beginPath();
+
+
+                    ctx.moveTo(
+                        node.x,
+                        node.y
+                    );
+
+
+                    ctx.lineTo(
+                        mouse.x,
+                        mouse.y
+                    );
+
+
+                    ctx.strokeStyle =
+                        "rgba(0,240,255,.25)";
+
+
+                    ctx.lineWidth=1;
+
+
+                    ctx.stroke();
+
+                }
+
+            }
+
 
         }
+    );
 
-    });
+
+    requestAnimationFrame(
+        animateNetwork
+    );
+
+}
 
 
-/* =========================================================
-   ESC KEY
-========================================================= */
+resizeCanvas();
 
-document.addEventListener("keydown", function(event) {
+animateNetwork();
 
-    if (event.key === "Escape") {
-
-        closeCertificate();
-
-    }
-
-});
 
 
 /* =========================================================
    SCROLL REVEAL
 ========================================================= */
 
-const observer =
-    new IntersectionObserver(
-
-        function(entries) {
-
-            entries.forEach(function(entry) {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("show");
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold: 0.12
-        }
-
+const revealElements =
+    document.querySelectorAll(
+        ".reveal"
     );
 
 
+const revealObserver =
+    new IntersectionObserver(
+        entries=>{
+
+            entries.forEach(
+                entry=>{
+
+                    if(
+                        entry.isIntersecting
+                    ){
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
+
+revealElements.forEach(
+    el=>{
+
+        revealObserver.observe(el);
+
+    }
+);
+
+
+
+/* =========================================================
+   THREAT COUNTER
+========================================================= */
+
+const threatCounter =
+    document.getElementById(
+        "threatCount"
+    );
+
+
+let threatValue=3;
+
+
+setInterval(
+    ()=>{
+
+        threatValue++;
+
+
+        if(
+            threatValue>9
+        ){
+
+            threatValue=3;
+
+        }
+
+
+        threatCounter.textContent =
+            String(
+                threatValue
+            ).padStart(
+                2,
+                "0"
+            );
+
+    },
+    5000
+);
+
+
+
+/* =========================================================
+   CERTIFICATE MODAL
+========================================================= */
+
+function openCertificate(
+    type,
+    src
+){
+
+    const modal =
+        document.getElementById(
+            "certificateModal"
+        );
+
+
+    const image =
+        document.getElementById(
+            "certificateImage"
+        );
+
+
+    const pdf =
+        document.getElementById(
+            "certificatePDF"
+        );
+
+
+    modal.classList.add(
+        "active"
+    );
+
+
+    if(
+        type === "image"
+    ){
+
+        image.style.display =
+            "block";
+
+        pdf.style.display =
+            "none";
+
+
+        image.src =
+            src;
+
+    }
+
+    else{
+
+        image.style.display =
+            "none";
+
+        pdf.style.display =
+            "block";
+
+
+        pdf.src =
+            src;
+
+    }
+
+}
+
+
+
+function closeCertificate(){
+
+    const modal =
+        document.getElementById(
+            "certificateModal"
+        );
+
+
+    const image =
+        document.getElementById(
+            "certificateImage"
+        );
+
+
+    const pdf =
+        document.getElementById(
+            "certificatePDF"
+        );
+
+
+    modal.classList.remove(
+        "active"
+    );
+
+
+    image.src =
+        "";
+
+    pdf.src =
+        "";
+
+}
+
+
+
 document
-    .querySelectorAll(".reveal")
-    .forEach(function(element) {
+    .getElementById(
+        "certificateModal"
+    )
+    .addEventListener(
+        "click",
+        (e)=>{
 
-        observer.observe(element);
+            if(
+                e.target.id ===
+                "certificateModal"
+            ){
 
-    });
+                closeCertificate();
+
+            }
+
+        }
+    );
+
+
+
+/* =========================================================
+   LIVE TERMINAL TEXT
+========================================================= */
+
+const messages = [
+
+    "Network traffic anomaly analyzed",
+
+    "Authentication activity monitored",
+
+    "Endpoint telemetry received",
+
+    "Firewall event verified",
+
+    "Suspicious packet pattern analyzed",
+
+    "SOC alert correlation completed",
+
+    "Security event normalized"
+
+];
+
+
+const alertRows =
+    document.querySelectorAll(
+        ".alert-message"
+    );
+
+
+setInterval(
+    ()=>{
+
+        const index =
+            Math.floor(
+                Math.random()
+                *
+                alertRows.length
+            );
+
+
+        alertRows[index].textContent =
+
+            messages[
+                Math.floor(
+                    Math.random()
+                    *
+                    messages.length
+                )
+            ];
+
+    },
+    3500
+);
 
 
 </script>
 
-
 </body>
 </html>
-```
-
