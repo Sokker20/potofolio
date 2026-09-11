@@ -1,0 +1,2718 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Ahmed Atia Abd-Elmonem Sokker - Cybersecurity Professional focused on SOC Operations, Network Security and Security Operations.">
+
+    <title>Ahmed Atia Sokker | Cybersecurity Portfolio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+
+    --bg: #03060b;
+    --bg2: #07111d;
+
+    --card: rgba(8, 17, 29, 0.90);
+
+    --primary: #00ffc8;
+    --primary2: #00b894;
+
+    --text: #f5f7fa;
+    --muted: #91a0b5;
+
+    --border: rgba(0,255,200,0.18);
+
+    --glow:
+        0 0 30px rgba(0,255,200,0.10);
+}
+
+
+body {
+
+    font-family: "Inter", sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0,255,200,0.08),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(0,140,255,0.07),
+            transparent 30%
+        ),
+
+        var(--bg);
+
+    line-height: 1.7;
+
+    overflow-x: hidden;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.container {
+
+    width: min(1150px, 92%);
+
+    margin: auto;
+}
+
+
+/* =========================================================
+   NETWORK BACKGROUND
+========================================================= */
+
+.network-background {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -2;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+.network-background::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(0,255,200,0.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(0,255,200,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+}
+
+
+.network-line {
+
+    position: absolute;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(0,255,200,0.25),
+            transparent
+        );
+
+    animation: networkMove 8s linear infinite;
+}
+
+
+.line1 {
+    width: 55%;
+    top: 22%;
+    left: -10%;
+    transform: rotate(18deg);
+}
+
+.line2 {
+    width: 45%;
+    top: 62%;
+    right: -10%;
+    transform: rotate(-25deg);
+    animation-delay: 2s;
+}
+
+.line3 {
+    width: 40%;
+    top: 42%;
+    left: 35%;
+    transform: rotate(70deg);
+    animation-delay: 4s;
+}
+
+
+.network-node {
+
+    position: absolute;
+
+    width: 6px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    box-shadow:
+        0 0 15px var(--primary);
+
+    animation: pulseNode 3s ease-in-out infinite;
+}
+
+
+.node1 {
+    top: 20%;
+    left: 15%;
+}
+
+.node2 {
+    top: 32%;
+    left: 75%;
+    animation-delay: 1s;
+}
+
+.node3 {
+    top: 70%;
+    left: 25%;
+    animation-delay: 2s;
+}
+
+.node4 {
+    top: 78%;
+    left: 82%;
+    animation-delay: 1.5s;
+}
+
+.node5 {
+    top: 48%;
+    left: 52%;
+    animation-delay: .5s;
+}
+
+
+@keyframes networkMove {
+
+    0% {
+        transform: translateX(-20%) rotate(18deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(40%) rotate(18deg);
+        opacity: 0;
+    }
+}
+
+
+@keyframes pulseNode {
+
+    0%, 100% {
+        transform: scale(1);
+        opacity: .5;
+    }
+
+    50% {
+        transform: scale(2.2);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+nav {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background:
+        rgba(3,6,11,0.86);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.nav-inner {
+
+    min-height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.logo {
+
+    font-family: "Orbitron", sans-serif;
+
+    color: var(--primary);
+
+    font-size: 1.15rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    gap: 22px;
+
+    list-style: none;
+}
+
+
+.nav-links a {
+
+    color: var(--muted);
+
+    font-size: .84rem;
+
+    transition: .3s;
+}
+
+
+.nav-links a:hover {
+
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-top: 90px;
+}
+
+
+.hero-grid {
+
+    display: grid;
+
+    grid-template-columns: 1.25fr .75fr;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+
+.eyebrow {
+
+    font-family: "Orbitron", sans-serif;
+
+    color: var(--primary);
+
+    font-size: .78rem;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+}
+
+
+.hero h1 {
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size:
+        clamp(2.5rem, 6vw, 5rem);
+
+    line-height: 1.08;
+
+    margin-bottom: 20px;
+}
+
+
+.hero h1 span {
+
+    color: var(--primary);
+
+    text-shadow:
+        0 0 25px rgba(0,255,200,.20);
+}
+
+
+.hero-description {
+
+    max-width: 700px;
+
+    color: var(--muted);
+
+    font-size: 1.05rem;
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+}
+
+
+.btn {
+
+    padding: 12px 21px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+
+.btn-primary {
+
+    background: var(--primary);
+
+    color: #00110c;
+}
+
+
+.btn:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 30px rgba(0,255,200,.12);
+}
+
+
+/* =========================================================
+   TERMINAL
+========================================================= */
+
+.terminal {
+
+    padding: 26px;
+
+    background:
+        rgba(3,10,17,.94);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow: var(--glow);
+
+    animation:
+        floating 5s ease-in-out infinite;
+}
+
+
+.terminal-top {
+
+    display: flex;
+
+    gap: 7px;
+
+    margin-bottom: 20px;
+}
+
+
+.dot {
+
+    width: 10px;
+
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+}
+
+
+.terminal code {
+
+    font-family: monospace;
+
+    color: #cbd5e1;
+
+    line-height: 2;
+}
+
+
+.green {
+
+    color: var(--primary);
+}
+
+
+@keyframes floating {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+section {
+
+    padding: 100px 0;
+}
+
+
+.section-title {
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 2rem;
+
+    margin-bottom: 10px;
+}
+
+
+.section-title span {
+
+    color: var(--primary);
+}
+
+
+.section-subtitle {
+
+    color: var(--muted);
+
+    margin-bottom: 40px;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-card {
+
+    padding: 35px;
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    transition: .4s;
+}
+
+
+.about-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color: var(--primary);
+
+    box-shadow: var(--glow);
+}
+
+
+.about-card p {
+
+    color: var(--muted);
+
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 18px;
+}
+
+
+.skill-card {
+
+    padding: 25px;
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 16px;
+
+    transition: .35s;
+}
+
+
+.skill-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color: var(--primary);
+
+    box-shadow: var(--glow);
+}
+
+
+.skill-card i {
+
+    color: var(--primary);
+
+    font-size: 1.8rem;
+
+    margin-bottom: 15px;
+}
+
+
+.skill-card h3 {
+
+    margin-bottom: 8px;
+}
+
+
+.skill-card p {
+
+    color: var(--muted);
+
+    font-size: .9rem;
+}
+
+
+/* =========================================================
+   CERTIFICATIONS
+========================================================= */
+
+.cert-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 20px;
+}
+
+
+.cert-card {
+
+    padding: 28px;
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    transition: .4s;
+}
+
+
+.cert-card:hover {
+
+    transform:
+        translateY(-9px)
+        scale(1.01);
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 35px rgba(0,255,200,.12);
+}
+
+
+.cert-icon {
+
+    color: var(--primary);
+
+    font-size: 2rem;
+
+    margin-bottom: 15px;
+}
+
+
+.cert-card h3 {
+
+    margin-bottom: 8px;
+
+    line-height: 1.4;
+}
+
+
+.cert-card p {
+
+    color: var(--muted);
+
+    font-size: .9rem;
+}
+
+
+.view-cert {
+
+    display: inline-block;
+
+    margin-top: 15px;
+
+    color: var(--primary);
+
+    font-size: .82rem;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   TRAINING
+========================================================= */
+
+.timeline {
+
+    border-left:
+        2px solid var(--primary);
+
+    padding-left: 28px;
+}
+
+
+.timeline-item {
+
+    position: relative;
+
+    margin-bottom: 30px;
+
+    padding: 25px;
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 16px;
+
+    transition: .3s;
+}
+
+
+.timeline-item:hover {
+
+    transform: translateX(8px);
+
+    border-color: var(--primary);
+}
+
+
+.timeline-item::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -38px;
+
+    top: 30px;
+
+    width: 14px;
+
+    height: 14px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    box-shadow:
+        0 0 15px var(--primary);
+}
+
+
+.timeline-item h3 {
+
+    color: var(--primary);
+
+    margin-bottom: 8px;
+}
+
+
+.timeline-item p {
+
+    color: var(--muted);
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 22px;
+}
+
+
+.project-card {
+
+    padding: 30px;
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    transition: .4s;
+}
+
+
+.project-card.featured {
+
+    grid-column:
+        span 2;
+}
+
+
+.project-card:hover {
+
+    transform: translateY(-9px);
+
+    border-color: var(--primary);
+
+    box-shadow: var(--glow);
+}
+
+
+.project-number {
+
+    color: var(--primary);
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: .72rem;
+
+    letter-spacing: 1px;
+}
+
+
+.project-card h3 {
+
+    margin: 10px 0;
+
+    font-size: 1.3rem;
+}
+
+
+.project-card p {
+
+    color: var(--muted);
+}
+
+
+.tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 20px;
+}
+
+
+.tag {
+
+    padding: 5px 10px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+    color: var(--primary);
+
+    font-size: .72rem;
+}
+
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+.education-card {
+
+    padding: 30px;
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    margin-bottom: 20px;
+
+    transition: .3s;
+}
+
+
+.education-card:hover {
+
+    transform: translateY(-6px);
+
+    border-color: var(--primary);
+}
+
+
+.education-card h3 {
+
+    color: var(--primary);
+
+    margin-bottom: 8px;
+}
+
+
+.education-card p {
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-box {
+
+    text-align: center;
+
+    padding: 60px 30px;
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+}
+
+
+.contact-box p {
+
+    max-width: 650px;
+
+    margin:
+        15px auto 30px;
+
+    color: var(--muted);
+}
+
+
+.socials {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.social {
+
+    width: 50px;
+
+    height: 50px;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 50%;
+
+    color: var(--primary);
+
+    transition: .3s;
+}
+
+
+.social:hover {
+
+    transform:
+        translateY(-6px)
+        rotate(5deg);
+
+    background: var(--primary);
+
+    color: #00110c;
+}
+
+
+/* =========================================================
+   CERTIFICATE MODAL
+========================================================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 3000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 15px;
+
+    background:
+        rgba(0,0,0,.90);
+
+    backdrop-filter: blur(8px);
+}
+
+
+.modal.active {
+
+    display: flex;
+}
+
+
+.modal-content {
+
+    width:
+        min(1000px,96vw);
+
+    height:
+        min(90vh,850px);
+
+    background:
+        #080d15;
+
+    border:
+        1px solid var(--primary);
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 50px rgba(0,255,200,.15);
+}
+
+
+.modal-header {
+
+    height: 65px;
+
+    padding: 0 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.modal-header h3 {
+
+    color: var(--primary);
+
+    font-size: 1rem;
+}
+
+
+.close {
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 2rem;
+
+    cursor: pointer;
+}
+
+
+.close:hover {
+
+    color: var(--primary);
+}
+
+
+#certificateImage {
+
+    width: 100%;
+
+    height:
+        calc(100% - 65px);
+
+    object-fit: contain;
+
+    background: #111;
+
+    display: none;
+}
+
+
+#certificatePDF {
+
+    width: 100%;
+
+    height:
+        calc(100% - 65px);
+
+    border: none;
+
+    background: white;
+
+    display: none;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding: 30px 0;
+
+    text-align: center;
+
+    border-top:
+        1px solid var(--border);
+
+    color: var(--muted);
+}
+
+
+footer span {
+
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(30px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+
+.reveal.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .skills-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+
+    .cert-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .projects-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .project-card.featured {
+
+        grid-column: span 1;
+    }
+
+
+    .nav-links {
+
+        display: none;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    section {
+
+        padding: 75px 0;
+    }
+
+
+    .skills-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .hero h1 {
+
+        font-size: 2.2rem;
+    }
+
+
+    .hero-buttons {
+
+        flex-direction: column;
+    }
+
+
+    .btn {
+
+        text-align: center;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NETWORK BACKGROUND
+========================================================= -->
+
+<div class="network-background">
+
+    <div class="network-line line1"></div>
+    <div class="network-line line2"></div>
+    <div class="network-line line3"></div>
+
+    <div class="network-node node1"></div>
+    <div class="network-node node2"></div>
+    <div class="network-node node3"></div>
+    <div class="network-node node4"></div>
+    <div class="network-node node5"></div>
+
+</div>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav>
+
+    <div class="container nav-inner">
+
+        <a href="#home" class="logo">
+            AHMED SOKKER
+        </a>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#certifications">Certifications</a>
+            </li>
+
+            <li>
+                <a href="#training">Training</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#education">Education</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="home">
+
+    <div class="container hero-grid">
+
+
+        <div class="reveal">
+
+            <div class="eyebrow">
+                NETWORK SECURITY • SOC • CYBERSECURITY
+            </div>
+
+
+            <h1>
+
+                Ahmed Atia<br>
+
+                <span>Sokker</span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Cybersecurity Professional focused on
+                SOC Operations, Network Security,
+                Enterprise Networking and Security Operations.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="#projects"
+                   class="btn btn-primary">
+
+                    View Projects
+
+                </a>
+
+
+                <a href="#contact"
+                   class="btn">
+
+                    Contact Me
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="terminal reveal">
+
+            <div class="terminal-top">
+
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+
+            </div>
+
+
+            <code>
+
+                <span class="green">$ whoami</span><br>
+
+                ahmed_sokker<br><br>
+
+
+                <span class="green">$ role</span><br>
+
+                Cybersecurity Professional<br><br>
+
+
+                <span class="green">$ focus</span><br>
+
+                SOC Operations<br>
+
+                Network Security<br>
+
+                Enterprise Networking<br><br>
+
+
+                <span class="green">$ status</span><br>
+
+                Open to opportunities
+
+            </code>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section id="about">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            About <span>Me</span>
+        </h2>
+
+
+        <p class="section-subtitle">
+            Cybersecurity and networking professional focused on practical security operations.
+        </p>
+
+
+        <div class="about-card reveal">
+
+            <p>
+
+                I am a Cybersecurity Professional with hands-on
+                training in Security Operations Center (SOC) engineering,
+                network security, enterprise networking and penetration testing.
+
+            </p>
+
+
+            <br>
+
+
+            <p>
+
+                I completed more than 540 hours of applied SOC training
+                through DEPI and NTI, in addition to Fortinet cybersecurity
+                training, networking training and eJPTv1-oriented
+                penetration testing.
+
+            </p>
+
+
+            <br>
+
+
+            <p>
+
+                I am seeking opportunities in SOC Operations,
+                Cybersecurity and Networking where I can contribute
+                to security monitoring, threat analysis, incident response
+                and secure enterprise environments.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SKILLS
+========================================================= -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Technical <span>Skills</span>
+        </h2>
+
+
+        <p class="section-subtitle">
+            Core cybersecurity, networking and infrastructure skills.
+        </p>
+
+
+        <div class="skills-grid">
+
+
+            <div class="skill-card reveal">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <h3>
+                    Security Operations
+                </h3>
+
+                <p>
+                    SOC Operations, Threat Monitoring,
+                    Incident Response and Security Analysis.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <i class="fa-solid fa-network-wired"></i>
+
+                <h3>
+                    Network Security
+                </h3>
+
+                <p>
+                    Network Security, CCNA concepts,
+                    network design, management and troubleshooting.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <i class="fa-solid fa-fire"></i>
+
+                <h3>
+                    Firewalls
+                </h3>
+
+                <p>
+                    Firewall concepts, traffic filtering,
+                    security policies and enterprise defense.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <i class="fa-solid fa-server"></i>
+
+                <h3>
+                    Systems
+                </h3>
+
+                <p>
+                    Windows, Windows Server and Linux environments.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <i class="fa-brands fa-python"></i>
+
+                <h3>
+                    Programming
+                </h3>
+
+                <p>
+                    Python and C++ fundamentals for
+                    technical and security tasks.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <i class="fa-solid fa-diagram-project"></i>
+
+                <h3>
+                    Enterprise Networking
+                </h3>
+
+                <p>
+                    Creating, managing and securing
+                    enterprise network environments.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CERTIFICATIONS
+========================================================= -->
+
+<section id="certifications">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            <span>Certifications</span>
+        </h2>
+
+
+        <p class="section-subtitle">
+            Professional certifications and completed training certificates.
+            Click any certificate to view it.
+        </p>
+
+
+        <div class="cert-grid">
+
+
+            <!-- SOC -->
+
+            <div class="cert-card reveal"
+
+                 onclick="openCertificate(
+                    'Security Operation Center (SOC) Engineering',
+                    'certificates/SOC.jpeg',
+                    'image'
+                 )">
+
+                <div class="cert-icon">
+
+                    <i class="fa-solid fa-user-shield"></i>
+
+                </div>
+
+
+                <h3>
+                    Security Operation Center (SOC) Engineering
+                </h3>
+
+
+                <p>
+
+                    DEPI & NTI · 540 Hours · Score 96%
+
+                    <br>
+
+                    Jan – Apr 2026
+
+                </p>
+
+
+                <span class="view-cert">
+
+                    <i class="fa-solid fa-eye"></i>
+
+                    Click to view certificate
+
+                </span>
+
+            </div>
+
+
+            <!-- FORTINET -->
+
+            <div class="cert-card reveal"
+
+                 onclick="openCertificate(
+                    'Fortinet Cybersecurity',
+                    'certificates/Fortinet.jpeg',
+                    'image'
+                 )">
+
+                <div class="cert-icon">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                </div>
+
+
+                <h3>
+                    Fortinet Cybersecurity
+                </h3>
+
+
+                <p>
+
+                    Digital Egypt Youth Program – NTI
+
+                    <br>
+
+                    120 Hours · Score 90%
+
+                    <br>
+
+                    Apr – May 2026
+
+                </p>
+
+
+                <span class="view-cert">
+
+                    <i class="fa-solid fa-eye"></i>
+
+                    Click to view certificate
+
+                </span>
+
+            </div>
+
+
+            <!-- CCNA 1 -->
+
+            <div class="cert-card reveal"
+
+                 onclick="openCertificate(
+                    'CCNA: Introduction to Networks',
+                    'certificates/CCNA1.jpeg',
+                    'image'
+                 )">
+
+                <div class="cert-icon">
+
+                    <i class="fa-solid fa-network-wired"></i>
+
+                </div>
+
+
+                <h3>
+                    CCNA: Introduction to Networks
+                </h3>
+
+
+                <p>
+
+                    Cisco Networking Academy
+
+                    <br>
+
+                    Arab Open University – Egypt
+
+                </p>
+
+
+                <span class="view-cert">
+
+                    <i class="fa-solid fa-eye"></i>
+
+                    Click to view certificate
+
+                </span>
+
+            </div>
+
+
+            <!-- CCNA 2 -->
+
+            <div class="cert-card reveal"
+
+                 onclick="openCertificate(
+                    'CCNA: Switching, Routing, and Wireless Essentials',
+                    'certificates/CCNA 2.jpeg',
+                    'image'
+                 )">
+
+                <div class="cert-icon">
+
+                    <i class="fa-solid fa-route"></i>
+
+                </div>
+
+
+                <h3>
+                    CCNA: Switching, Routing, and Wireless Essentials
+                </h3>
+
+
+                <p>
+
+                    Cisco Networking Academy
+
+                    <br>
+
+                    Arab Open University – Egypt
+
+                </p>
+
+
+                <span class="view-cert">
+
+                    <i class="fa-solid fa-eye"></i>
+
+                    Click to view certificate
+
+                </span>
+
+            </div>
+
+
+            <!-- CCNA NET -->
+
+            <div class="cert-card reveal"
+
+                 onclick="openCertificate(
+                    'CCNA: Enterprise Networking, Security, and Automation',
+                    'certificates/CCNA net.jpeg',
+                    'image'
+                 )">
+
+                <div class="cert-icon">
+
+                    <i class="fa-solid fa-sitemap"></i>
+
+                </div>
+
+
+                <h3>
+                    CCNA: Enterprise Networking, Security, and Automation
+                </h3>
+
+
+                <p>
+
+                    Cisco Networking Academy
+
+                    <br>
+
+                    Arab Open University – Egypt
+
+                </p>
+
+
+                <span class="view-cert">
+
+                    <i class="fa-solid fa-eye"></i>
+
+                    Click to view certificate
+
+                </span>
+
+            </div>
+
+
+            <!-- ETHICAL HACKING -->
+
+            <div class="cert-card reveal"
+
+                 onclick="openCertificate(
+                    'Ethical Hacking',
+                    'certificates/ethicalhacking.png',
+                    'image'
+                 )">
+
+                <div class="cert-icon">
+
+                    <i class="fa-solid fa-user-secret"></i>
+
+                </div>
+
+
+                <h3>
+                    Ethical Hacking
+                </h3>
+
+
+                <p>
+                    Ethical Hacking Training
+                </p>
+
+
+                <span class="view-cert">
+
+                    <i class="fa-solid fa-eye"></i>
+
+                    Click to view certificate
+
+                </span>
+
+            </div>
+
+
+            <!-- RED HAT -->
+
+            <div class="cert-card reveal"
+
+                 onclick="openCertificate(
+                    'Red Hat',
+                    'certificates/redhat.png',
+                    'image'
+                 )">
+
+                <div class="cert-icon">
+
+                    <i class="fa-brands fa-redhat"></i>
+
+                </div>
+
+
+                <h3>
+                    Red Hat
+                </h3>
+
+
+                <p>
+                    Red Hat Training Certificate
+                </p>
+
+
+                <span class="view-cert">
+
+                    <i class="fa-solid fa-eye"></i>
+
+                    Click to view certificate
+
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TRAINING
+========================================================= -->
+
+<section id="training">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Professional <span>Training</span>
+        </h2>
+
+
+        <p class="section-subtitle">
+            Practical cybersecurity and networking training.
+        </p>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item reveal">
+
+                <h3>
+                    SOC Engineering Track
+                </h3>
+
+                <p>
+                    DEPI in partnership with NTI · Egypt
+                    <br>
+                    Jan 2026 – Apr 2026
+                    <br>
+                    540 Hours · Final Score: 96%
+                </p>
+
+                <p>
+                    Threat detection, security monitoring,
+                    SOC operations and incident response workflows.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <h3>
+                    Fortinet Cybersecurity Track
+                </h3>
+
+                <p>
+                    Digital Egypt Youth Program – NTI · Egypt
+                    <br>
+                    Apr 2026 – May 2026
+                    <br>
+                    90 Technical + 30 Soft Skills Hours · Score: 90%
+                </p>
+
+                <p>
+                    Fortinet security solutions and enterprise
+                    cybersecurity defense concepts.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <h3>
+                    Networking Track
+                </h3>
+
+                <p>
+                    NTI in collaboration with Creativa · Egypt
+                </p>
+
+                <p>
+                    Core networking concepts, practical networking
+                    skills and network troubleshooting.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <h3>
+                    eLearnSecurity Junior Penetration Tester (eJPTv1)
+                </h3>
+
+                <p>
+                    Red Nexis under Hossam Shady · Egypt
+                </p>
+
+                <p>
+                    Practical penetration testing with fundamentals
+                    of network and web security testing.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
+
+<section id="projects">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Security <span>Projects</span>
+        </h2>
+
+
+        <p class="section-subtitle">
+            Practical cybersecurity and enterprise networking labs.
+        </p>
+
+
+        <div class="projects-grid">
+
+
+            <div class="project-card featured reveal">
+
+                <span class="project-number">
+                    01 · SOC
+                </span>
+
+                <h3>
+                    SOC Monitoring & Incident Response Lab
+                </h3>
+
+                <p>
+                    Practical SOC environment focused on security
+                    alert analysis, threat investigation, incident
+                    response workflows and identifying Indicators
+                    of Compromise (IOCs).
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">SOC</span>
+                    <span class="tag">Incident Response</span>
+                    <span class="tag">Threat Analysis</span>
+                    <span class="tag">Log Analysis</span>
+                    <span class="tag">IOC</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-card reveal">
+
+                <span class="project-number">
+                    02 · NETWORK SECURITY
+                </span>
+
+                <h3>
+                    Enterprise Network Design & Security Lab
+                </h3>
+
+                <p>
+                    Designed and configured a multi-site enterprise
+                    network environment with VLAN segmentation,
+                    routing, redundancy and network troubleshooting.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">GNS3</span>
+                    <span class="tag">VLAN</span>
+                    <span class="tag">OSPF</span>
+                    <span class="tag">HSRP</span>
+                    <span class="tag">VLSM</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-card reveal">
+
+                <span class="project-number">
+                    03 · VULNERABILITY
+                </span>
+
+                <h3>
+                    Vulnerability Assessment Lab
+                </h3>
+
+                <p>
+                    Performed vulnerability discovery, security
+                    scanning, risk analysis and security reporting
+                    in a controlled lab environment.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">Nessus</span>
+                    <span class="tag">Nmap</span>
+                    <span class="tag">Kali Linux</span>
+                    <span class="tag">Security Scanning</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-card reveal">
+
+                <span class="project-number">
+                    04 · SECURITY TESTING
+                </span>
+
+                <h3>
+                    Web & Network Security Testing Lab
+                </h3>
+
+                <p>
+                    Conducted controlled security testing including
+                    enumeration, service discovery and web application
+                    security validation.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">Kali Linux</span>
+                    <span class="tag">Nmap</span>
+                    <span class="tag">Burp Suite</span>
+                    <span class="tag">Metasploit</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-card reveal">
+
+                <span class="project-number">
+                    05 · PHISHING
+                </span>
+
+                <h3>
+                    Phishing & IOC Analysis Lab
+                </h3>
+
+                <p>
+                    Analyzed simulated phishing emails, suspicious
+                    URLs, email indicators and extracted IOCs as
+                    part of a SOC-oriented investigation workflow.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">Phishing</span>
+                    <span class="tag">IOC</span>
+                    <span class="tag">Email Security</span>
+                    <span class="tag">SOC</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-card reveal">
+
+                <span class="project-number">
+                    06 · SYSTEMS
+                </span>
+
+                <h3>
+                    Windows & Linux Security Lab
+                </h3>
+
+                <p>
+                    Practical work with Windows Server and Linux
+                    systems, network configuration, system
+                    administration and security troubleshooting.
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">Windows Server</span>
+                    <span class="tag">Linux</span>
+                    <span class="tag">Networking</span>
+                    <span class="tag">Security</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     EDUCATION
+========================================================= -->
+
+<section id="education">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            <span>Education</span>
+        </h2>
+
+
+        <p class="section-subtitle">
+            Academic background and relevant studies.
+        </p>
+
+
+        <div class="education-card reveal">
+
+            <h3>
+                Cisco Certified Network Associate (CCNA) — Full Track
+            </h3>
+
+            <p>
+                Cisco Networking Academy · Arab Open University – Egypt
+            </p>
+
+            <br>
+
+            <p>
+                Completed the three major CCNA learning modules:
+                Introduction to Networks, Switching, Routing and
+                Wireless Essentials, and Enterprise Networking,
+                Security and Automation.
+            </p>
+
+        </div>
+
+
+        <div class="education-card reveal">
+
+            <h3>
+                B.Sc. Program — Relevant Coursework
+            </h3>
+
+            <p>
+                Arab Open University (AOU) – Egypt
+            </p>
+
+            <br>
+
+            <p>
+                Relevant coursework includes Network Creation &
+                Management, Network Security and Operating Systems
+                including Windows and Linux.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <div class="contact-box reveal">
+
+            <h2 class="section-title">
+                Let's <span>Connect</span>
+            </h2>
+
+
+            <p>
+                Open to opportunities in SOC Operations,
+                Cybersecurity and Networking.
+            </p>
+
+
+            <div class="socials">
+
+
+                <!-- EMAIL -->
+
+                <a class="social"
+                   href="mailto:ahmed.sokker.soc@gmail.com"
+                   title="Email">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                </a>
+
+
+                <!-- LINKEDIN -->
+
+                <a class="social"
+                   href="https://www.linkedin.com/in/ahmed-sokker-204187357/"
+                   target="_blank"
+                   rel="noopener"
+                   title="LinkedIn">
+
+                    <i class="fa-brands fa-linkedin-in"></i>
+
+                </a>
+
+
+                <!-- GITHUB -->
+
+                <a class="social"
+                   href="https://github.com/Sokker20"
+                   target="_blank"
+                   rel="noopener"
+                   title="GitHub">
+
+                    <i class="fa-brands fa-github"></i>
+
+                </a>
+
+
+                <!-- FACEBOOK -->
+
+                <a class="social"
+                   href="https://www.facebook.com/share/19DmVU5sba/"
+                   target="_blank"
+                   rel="noopener"
+                   title="Facebook">
+
+                    <i class="fa-brands fa-facebook-f"></i>
+
+                </a>
+
+
+                <!-- PHONE -->
+
+                <a class="social"
+                   href="tel:+201006079635"
+                   title="Phone">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <p>
+
+            © 2026
+
+            <span>
+                Ahmed Atia Abd-Elmonem Sokker
+            </span>
+
+            · All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     CERTIFICATE POPUP
+========================================================= -->
+
+<div class="modal" id="certificateModal">
+
+
+    <div class="modal-content">
+
+
+        <div class="modal-header">
+
+            <h3 id="certificateTitle">
+                Certificate
+            </h3>
+
+
+            <button
+                class="close"
+                onclick="closeCertificate()">
+
+                &times;
+
+            </button>
+
+        </div>
+
+
+        <!-- IMAGE CERTIFICATES -->
+
+        <img
+            id="certificateImage"
+            alt="Certificate">
+
+
+        <!-- PDF CERTIFICATES -->
+
+        <iframe
+            id="certificatePDF"
+            title="Certificate PDF">
+        </iframe>
+
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   OPEN CERTIFICATE
+========================================================= */
+
+function openCertificate(title, file, type) {
+
+    const modal =
+        document.getElementById("certificateModal");
+
+    const titleElement =
+        document.getElementById("certificateTitle");
+
+    const image =
+        document.getElementById("certificateImage");
+
+    const pdf =
+        document.getElementById("certificatePDF");
+
+
+    titleElement.textContent = title;
+
+
+    /* Reset */
+
+    image.style.display = "none";
+
+    pdf.style.display = "none";
+
+    image.src = "";
+
+    pdf.src = "";
+
+
+    /* IMAGE */
+
+    if (type === "image") {
+
+        image.src = file;
+
+        image.style.display = "block";
+
+    }
+
+
+    /* PDF */
+
+    if (type === "pdf") {
+
+        pdf.src = file;
+
+        pdf.style.display = "block";
+
+    }
+
+
+    modal.classList.add("active");
+
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+/* =========================================================
+   CLOSE CERTIFICATE
+========================================================= */
+
+function closeCertificate() {
+
+    const modal =
+        document.getElementById("certificateModal");
+
+    const image =
+        document.getElementById("certificateImage");
+
+    const pdf =
+        document.getElementById("certificatePDF");
+
+
+    modal.classList.remove("active");
+
+
+    image.src = "";
+
+    pdf.src = "";
+
+
+    document.body.style.overflow = "auto";
+
+}
+
+
+/* =========================================================
+   CLOSE WHEN CLICKING OUTSIDE
+========================================================= */
+
+document
+    .getElementById("certificateModal")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+
+            closeCertificate();
+
+        }
+
+    });
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        closeCertificate();
+
+    }
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+
+        function(entries) {
+
+            entries.forEach(function(entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(function(element) {
+
+        observer.observe(element);
+
+    });
+
+
+</script>
+
+
+</body>
+</html>
+```
+
